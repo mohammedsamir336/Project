@@ -19,14 +19,6 @@
 /* Request::segment(1 or 2 or 3) to get routes url  in blade view*/
 //singleton To public share data in views or anything else
 
-//use DevsWebDev\DevTube\Download;
-use App\comments;
-use App\User;
-use App\posts;
-use App\Reply;
-use App\videos;
-use App\Rep;
-
 app()->singleton('TestTon', function () {
     // code...
   return 'hi from singleton'; //in blade view {{app('TestTon')}}
@@ -121,24 +113,23 @@ Route::group(['middleware' => 'language'], function () {
    Route::resource('/users','usercontroller',['except'=> ['show','create','store']]);
  });*/
 
-
 //test delete with foreignkeys colum enableForeignKeyConstraints in (App\Providers\AppServiceProvider)
       /*Route::get('/D',function () {
         $d= \App\User::where('id',)->delete();
         return back();
       });*/
-Route::get('/download/{name}', function ($name = null) {
-    //$localFile = storage_path().'movies';
-    // return copy($name, $localFile);
-    //$image->move(public_path('indexfolder/images/'), $name);
+/*Route::get('/download/{name}', function ($name = null) {
+    $localFile = storage_path().'movies';
+     return copy($name, $localFile);
+    $image->move(public_path('indexfolder/images/'), $name);
 
-    /*$remoteFile = 'https://www.youtube.com/watch?v=c4274AHyFlU';
+    $remoteFile = 'https://www.youtube.com/watch?v=c4274AHyFlU';
     $localFile = storage_path().'movies';
     copy($remoteFile, $localFile);
-    return response()->download( $filename ?? '');*/
+    return response()->download( $filename ?? '');
 
     return  response()->download(public_path('img/'.$name));
-});
+});*/
 
 /*Route::get('up', function () {
     //$f = (storage_path().'/framework/down');//\File::delete($f);
