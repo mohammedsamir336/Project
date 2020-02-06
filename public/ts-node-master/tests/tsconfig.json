@@ -1,0 +1,11 @@
+{
+  "compilerOptions": {
+    "jsx": "react",
+    "noEmit": true,
+    // Global type definitions.
+    "typeRoots": [
+      "./typings",
+      "../node_modules/@types",
+    ],
+  }
+}
