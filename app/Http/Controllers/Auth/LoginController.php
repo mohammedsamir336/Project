@@ -74,7 +74,7 @@ class LoginController extends Controller
             $user->save();
         }
         Auth::login($user);
-        return  back();//redirect($this->redirectTo);
+        return  redirect($this->redirectTo);
     }
 
     /**
