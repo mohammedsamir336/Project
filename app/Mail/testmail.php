@@ -26,8 +26,8 @@ class testmail extends Mailable
      *
      * @return $this
      */
-    public function build()
+    public function build($name = null)
     {
-        return $this->markdown('TestMail.Message');
+        return $this->markdown('TestMail.Message')->with('name', $name);
     }
 }

@@ -1,8 +1,13 @@
 @component('mail::message')
 # Introduction
 
-Hi from test....
-@component('mail::button', ['url' => url('home')])
+Hi ...
+
+Thank you for visit my website.
+
+I hope to enjoy.
+
+@component('mail::button', ['url' => url('/')])
 Go Home
 @endcomponent
 

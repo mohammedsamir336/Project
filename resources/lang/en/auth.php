@@ -86,6 +86,7 @@ return [
     'Your account has been blocked by Admin you can wait'=> 'Your account has been blocked by Admin you can wait',
     'before Unblock.'=> 'before Unblock.',
     'Your account has been blocked by Administrator you can wait'=> 'Your account has been blocked by Administrator you can wait',
+    'your internet Connection has faild'=> 'your internet Connection has faild',
 
 
 

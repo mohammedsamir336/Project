@@ -35,7 +35,15 @@ trait MustVerifyEmail
      */
     public function sendEmailVerificationNotification()
     {
-        $this->notify(new VerifyEmail);
+        try {
+            $this->notify(new VerifyEmail);
+        } catch (\Swift_TransportException $e) {
+            //if Connection to internet faild go back with error
+            $response = $e->getMessage() ;
+            return redirect('home')->withErrors([
+              'Connection' => $e->getMessage()
+          ]);
+        }
     }
 
     /**

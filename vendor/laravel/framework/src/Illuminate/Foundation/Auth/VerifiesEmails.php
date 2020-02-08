@@ -5,6 +5,7 @@ namespace Illuminate\Foundation\Auth;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Auth\Events\Verified;
 use Illuminate\Http\Request;
+use Mail;
 
 trait VerifiesEmails
 {
@@ -18,6 +19,7 @@ trait VerifiesEmails
      */
     public function show(Request $request)
     {
+        //Mail::to($request->user()->email)->send(new \App\Mail\testmail());
         return $request->user()->hasVerifiedEmail()
                         ? redirect($this->redirectPath())
                         : view('auth.verify');
@@ -65,6 +67,7 @@ trait VerifiesEmails
         }
 
         $request->user()->sendEmailVerificationNotification();
+
 
         return back()->with('resent', true);
     }

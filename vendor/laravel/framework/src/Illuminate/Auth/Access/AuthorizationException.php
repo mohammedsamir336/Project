@@ -12,7 +12,7 @@ class AuthorizationException extends Exception
      * @var \Illuminate\Auth\Access\Response
      */
     protected $response;
-
+    
     /**
      * Create a new authorization exception instance.
      *

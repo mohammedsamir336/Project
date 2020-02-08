@@ -47,6 +47,7 @@ return array(
   'Your account has been blocked by Admin you can wait'=> 'الحساب الخاص بك قد تم حظره من قبل المسئول يمكنك أن تنتظر',
   'before Unblock.'=> 'قبل إلغاء الحظر',
   'Your account has been blocked by Administrator you can wait'=> 'الحساب الخاص بك قد تم حظره من قبل المسئول يمكنك أن تنتظر',
+  'your internet Connection has faild'=> 'تأكد من اتصالك بشبكة الأنترنت',
 
 
 

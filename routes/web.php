@@ -103,8 +103,8 @@ Route::group(['middleware' => 'language'], function () {
     });
 
     //test mail (php artisan make:mail )
-    Route::get('/TestMail', function () {
-        Mail::to('example@yahoo.com'/*user->email*/)->send(new \App\Mail\testmail());
+    Route::get('/TestMail/{email}', function ($email) {
+        Mail::to($email)->send(new \App\Mail\testmail());
         return back();
     });
 });

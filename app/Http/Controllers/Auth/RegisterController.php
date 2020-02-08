@@ -12,6 +12,7 @@ use Nexmo;
 use session;
 use Auth;
 use Image;
+
 class RegisterController extends Controller
 {
     /*
@@ -54,9 +55,9 @@ class RegisterController extends Controller
     {
         return Validator::make($data, [
         'name' => ['required', 'string', 'max:255','regex:/^[\p{Arabic}a-zA-Z\- .ـ]+$/u'/*"regex:~^[a-z0-9٠-٩\-+,()/'\s\p{Arabic}]{1,60}$~iu"*/],
-         'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-         'password' => ['required', 'string', 'min:8', 'confirmed'],
-       'phone' => ['required',  'min:11', 'max:17','unique:users',/*'regex:/(01)[0-9]{9}/',*//*'regex:/(01)[0-9]{9}/'*/],
+        'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+        'password' => ['required', 'string', 'min:8', 'confirmed'],
+        'phone' => ['required',  'min:11', 'max:17','unique:users',/*'regex:/(01)[0-9]{9}/',*//*'regex:/(01)[0-9]{9}/'*/],
         ]);
     }
 
@@ -81,17 +82,12 @@ class RegisterController extends Controller
     });
      $img->save(public_path('img/orange.jpg'));*/
 
-          return User::create([
+        return User::create([
               'name'     => $data['name'],
               'email'    => $data['email'],
               'phone'    =>  $data['phone'],
               'password' => bcrypt($data['password']),
               'img'      => 'https://ui-avatars.com/api/?background=0D8ABC&color=fff&length=1&rounded=true&bold=true&size=65&name='.$data['name'],
           ]);
-
-
-
     }
-
-
- }
+}

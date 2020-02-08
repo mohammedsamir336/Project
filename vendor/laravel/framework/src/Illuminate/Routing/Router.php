@@ -1223,7 +1223,7 @@ class Router implements BindingRegistrar, RegistrarContract
         $this->get('email/verify/{id}/{hash}', 'Auth\VerificationController@verify')->name('verification.verify');
         $this->post('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
     }
-
+    
     /**
      * Set the unmapped global resource parameters to singular.
      *

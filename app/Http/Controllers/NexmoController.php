@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use Illuminate\Http\Request;
 use Auth;
 use Nexmo;
@@ -15,53 +16,47 @@ class NexmoController extends Controller
    *
    * @return void
    */
-  public function __construct()
-  {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
 
-      $this->middleware('auth');
-  }
-
-/*
-*
-*
-*/
-    public function show() {
-
-     if (!auth()->user()->phone_verified_at) {
-
-    return view('nexmo');
-     }
-      return redirect('home');
-  }
+    /*
+    *
+    *
+    */
+    public function show()
+    {
+        if (!auth()->user()->phone_verified_at) {
+            return view('nexmo');
+        }
+        return redirect('home');
+    }
 
 
-    public function verify(Request $request) {
-
-         $this->validate($request, [
+    public function verify(Request $request)
+    {
+        $this->validate($request, [
              'code' => 'size:4'
          ]);
 
-         try {
+        try {
+            $request_id = session('nexmo_request_id');
 
-           $request_id = session('nexmo_request_id');
+            $verification = new \Nexmo\Verify\Verification($request_id);
 
-           $verification = new \Nexmo\Verify\Verification($request_id);
+            Nexmo::verify()->check($verification, $request->code);
 
-           Nexmo::verify()->check($verification, $request->code);
+            $date = date_create();
 
-           $date = date_create();
+            User::where('id', auth()->id())->update(['phone_verified_at' => date_format($date, 'Y-m-d H:i:s')]);
 
-          User::where('id', auth()->id())->update(['phone_verified_at' => date_format($date, 'Y-m-d H:i:s')]);
-
-           return redirect('/home');
-
-            } catch (Nexmo\Client\Exception\Request $e) {
-                return back()->withErrors([
+            return redirect('/home');
+        } catch (Nexmo\Client\Exception\Request $e) {
+            return back()->withErrors([
                     'code' => $e->getMessage()
                 ]);
-
-            }
-
+        }
     }
 
 
@@ -72,24 +67,19 @@ class NexmoController extends Controller
            * @param  int  $id
            * @return \Illuminate\Http\Response
            */
-          public function resendcode($phone)
-          {
-
-             try {
-               $verification = Nexmo::verify()->start([
+    public function resendcode($phone)
+    {
+        try {
+            $verification = Nexmo::verify()->start([
                      'number' => $phone,
                      'brand' => 'Phone Verification',
                  ]);
 
-                    return back();
-
-                } catch (Nexmo\Client\Exception\Request $e) {
-                    return back()->withErrors([
+            return back();
+        } catch (Nexmo\Client\Exception\Request $e) {
+            return back()->withErrors([
                         'code' => $e->getMessage()
                     ]);
-
-                }
-          }
-
-
+        }
+    }
 }
