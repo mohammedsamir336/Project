@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<html lang="<?php echo e(str_replace('_', '-', app()->getLocale())); ?>">
 
 <head>
     <meta charset="utf-8">
@@ -9,14 +9,14 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
 
-    <link rel="icon" href="{{ asset('img/m.png') }}" type="image/icon type">
+    <link rel="icon" href="<?php echo e(asset('img/m.png')); ?>" type="image/icon type">
 
     <!-- Custom CSS -->
-    <link href="{{ asset('adminfolder/assets/libs/flot/css/float-chart.css') }}" rel="stylesheet">
+    <link href="<?php echo e(asset('adminfolder/assets/libs/flot/css/float-chart.css')); ?>" rel="stylesheet">
     <!-- Custom CSS -->
-    <link href="{{ asset('adminfolder/dist/css/style.min.css') }}" rel="stylesheet">
+    <link href="<?php echo e(asset('adminfolder/dist/css/style.min.css')); ?>" rel="stylesheet">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -32,7 +32,7 @@
             }
         }
 
-        @keyframes autofill {
+        @keyframes  autofill {
             to {
                 color: #33B7FF;
                 background: transparent;
@@ -223,7 +223,7 @@
 
 <body>
     <!-- for title if admin have  new message -->
-    <span id="message_notif" style="display:none">({{$notfiy}}) New Message...</span>
+    <span id="message_notif" style="display:none">(<?php echo e($notfiy); ?>) New Message...</span>
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -248,19 +248,19 @@
                     <!-- ============================================================== -->
                     <!-- Logo -->
                     <!-- ============================================================== -->
-                    <a class="navbar-brand" href="{{route('home')}}" target="_blank">
+                    <a class="navbar-brand" href="<?php echo e(route('home')); ?>" target="_blank">
                         <!-- Logo icon -->
                         <b class="logo-icon p-l-10">
                             <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
                             <!-- Dark Logo icon -->
-                            <img src="{{asset('img/m.png')}}" alt="homepage" class="light-logo" height="50" width="51" />
+                            <img src="<?php echo e(asset('img/m.png')); ?>" alt="homepage" class="light-logo" height="50" width="51" />
 
                         </b>
                         <!--End Logo icon -->
                         <!-- Logo text -->
                         <span class="logo-text">
                             <!-- dark Logo text -->
-                            <img src="{{asset('adminfolder/assets/images/logo-text.png')}}" alt="homepage" class="light-logo" />
+                            <img src="<?php echo e(asset('adminfolder/assets/images/logo-text.png')); ?>" alt="homepage" class="light-logo" />
                         </span>
                         <!-- Logo icon -->
                         <!-- <b class="logo-icon"> -->
@@ -293,7 +293,7 @@
                         <!-- create new -->
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="{{url('/admin/profile  1')}}">
+                            <a class="nav-link dropdown-toggle" href="<?php echo e(url('/admin/profile  1')); ?>">
                                 <span class="d-none d-md-block">About </span>
 
                             </a>
@@ -318,89 +318,91 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="mdi mdi-bell font-24"></i>
-                                @if ($notfiy > 0)
+                                <?php if($notfiy > 0): ?>
                                 <!-- $notfiy  count of Messages -->
-                                <span class="badge badge-danger badge-pill">{{$notfiy}}</span>
-                                @endif
+                                <span class="badge badge-danger badge-pill"><?php echo e($notfiy); ?></span>
+                                <?php endif; ?>
                             </a>
                             <ul class="dropdown-menu scrollable-menu">
                                 <li class="head text-light bg-dark">
                                     <div class="row">
                                         <div class="col-lg-12 col-sm-12 col-12">
-                                            <span>Messages Not Read ({{$notfiy}})</span>
-                                            <a href="{{url('admin/message/AsRead')}}" class="float-right text-light">Mark all as read</a>
+                                            <span>Messages Not Read (<?php echo e($notfiy); ?>)</span>
+                                            <a href="<?php echo e(url('admin/message/AsRead')); ?>" class="float-right text-light">Mark all as read</a>
                                         </div>
                                 </li>
 
                                 <!-- $contact and $notfiy in App\Http\view\Composers -->
-                                @foreach ($contact as $message)
+                                <?php $__currentLoopData = $contact; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $message): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <!-- if Not read message background will be gray -->
-                                @if ($message->status)
+                                <?php if($message->status): ?>
                                 <li class="notification-box ">
                                     <div class="row">
                                         <div class="col-lg-3 col-sm-3 col-3 text-center ">
                                             <!-- if users -->
-                                            @if ( $message->users_id )
-                                            @if ( file_exists('img/users_img/'.$message->users_id()->first()->img))
-                                            <img class="w-50 rounded-circle" src="{{asset('img/users_img/'.$message->users_id()->first()->img)}}" alt="avatar" height="51px">
-                                            @else
+                                            <?php if( $message->users_id ): ?>
+                                            <?php if( file_exists('img/users_img/'.$message->users_id()->first()->img)): ?>
+                                            <img class="w-50 rounded-circle" src="<?php echo e(asset('img/users_img/'.$message->users_id()->first()->img)); ?>" alt="avatar" height="51px">
+                                            <?php else: ?>
                                             <!-- if img users from socialite -->
-                                            <img class="w-50 rounded-circle" src="{{$message->users_id()->first()->img}}" alt="avatar" height="51px">
-                                            @endif
+                                            <img class="w-50 rounded-circle" src="<?php echo e($message->users_id()->first()->img); ?>" alt="avatar" height="51px">
+                                            <?php endif; ?>
                                             <!-- if Not guest -->
-                                            @else
-                                            <div class="msgw-Avatar msgw-Avatar--sm msgw-Avatar--black ml-4">{{strtoupper(mb_substr($message->name,0,1,'utf-8'))}}</div>
+                                            <?php else: ?>
+                                            <div class="msgw-Avatar msgw-Avatar--sm msgw-Avatar--black ml-4"><?php echo e(strtoupper(mb_substr($message->name,0,1,'utf-8'))); ?></div>
 
-                                            @endif
+                                            <?php endif; ?>
                                         </div>
 
                                         <div class="col-lg-8 col-sm-8 col-8 ">
-                                            <a href="{{url('admin/message/read '.$message->id)}}"><strong class="text-info">{{$message->name}}</strong>
+                                            <a href="<?php echo e(url('admin/message/read '.$message->id)); ?>"><strong class="text-info"><?php echo e($message->name); ?></strong>
                                                 <div class="text-dark">
-                                                    {{$message->sub}}
+                                                    <?php echo e($message->sub); ?>
+
                                                 </div>
-                                                <small class="text-warning">{{$message->created_at->format('dD M Y h:sA')}}, {{$message->created_at->longAbsoluteDiffForHumans()}} <!-- diffForHumans(null,true,true) --></small>
+                                                <small class="text-warning"><?php echo e($message->created_at->format('dD M Y h:sA')); ?>, <?php echo e($message->created_at->longAbsoluteDiffForHumans()); ?> <!-- diffForHumans(null,true,true) --></small>
                                             </a>
                                         </div>
                                     </div>
                                 </li>
 
 
-                                @else
+                                <?php else: ?>
                                 <!-- if Not read message background will be gray -->
                                 <li class="notification-box bg-gray">
                                     <div class="row">
                                         <div class="col-lg-3 col-sm-3 col-3 text-center ">
                                             <!-- if users -->
-                                            @if ( $message->users_id )
-                                            @if ( file_exists('img/users_img/'.$message->users_id()->first()->img))
-                                            <img class="w-50 rounded-circle" src="{{asset('img/users_img/'.$message->users_id()->first()->img)}}" alt="avatar" height="51px">
-                                            @else
+                                            <?php if( $message->users_id ): ?>
+                                            <?php if( file_exists('img/users_img/'.$message->users_id()->first()->img)): ?>
+                                            <img class="w-50 rounded-circle" src="<?php echo e(asset('img/users_img/'.$message->users_id()->first()->img)); ?>" alt="avatar" height="51px">
+                                            <?php else: ?>
                                             <!-- if img users from socialite -->
-                                            <img class="w-50 rounded-circle" src="{{$message->users_id()->first()->img}}" alt="avatar" height="51px">
-                                            @endif
+                                            <img class="w-50 rounded-circle" src="<?php echo e($message->users_id()->first()->img); ?>" alt="avatar" height="51px">
+                                            <?php endif; ?>
                                             <!-- if Not users -->
-                                            @else
-                                            <div class="msgw-Avatar msgw-Avatar--sm msgw-Avatar--black ml-4">{{strtoupper(mb_substr($message->name,0,1,'utf-8'))}}</div>
-                                            @endif
+                                            <?php else: ?>
+                                            <div class="msgw-Avatar msgw-Avatar--sm msgw-Avatar--black ml-4"><?php echo e(strtoupper(mb_substr($message->name,0,1,'utf-8'))); ?></div>
+                                            <?php endif; ?>
 
                                         </div>
 
                                         <div class="col-lg-8 col-sm-8 col-8 ">
-                                            <a href="{{url('admin/message/read '.$message->id)}}"><strong class="text-info">{{$message->name}}</strong>
+                                            <a href="<?php echo e(url('admin/message/read '.$message->id)); ?>"><strong class="text-info"><?php echo e($message->name); ?></strong>
                                                 <div class="text-dark">
-                                                    {{$message->sub}}
+                                                    <?php echo e($message->sub); ?>
+
                                                 </div>
-                                                <small class="text-warning">{{$message->created_at}}, {{$message->created_at->longAbsoluteDiffForHumans()}} <!-- diffForHumans(null,true,true) --></small>
+                                                <small class="text-warning"><?php echo e($message->created_at); ?>, <?php echo e($message->created_at->longAbsoluteDiffForHumans()); ?> <!-- diffForHumans(null,true,true) --></small>
                                             </a>
                                         </div>
                                     </div>
                                 </li>
-                                @endif
-                                @endforeach
+                                <?php endif; ?>
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                                 <li class="footer bg-dark text-center">
-                                    <a href="{{route('admin.Contacts_Message')}}" class="text-light">View All</a>
+                                    <a href="<?php echo e(route('admin.Contacts_Message')); ?>" class="text-light">View All</a>
                                 </li>
                             </ul>
                         </li>
@@ -421,7 +423,7 @@
                                     <li>
                                         <div class="">
                                             <!-- Message -->
-                                            <a href="{{route('admin.MyPlans')}}" class="link border-top">
+                                            <a href="<?php echo e(route('admin.MyPlans')); ?>" class="link border-top">
                                                 <div class="d-flex no-block align-items-center p-10">
                                                     <span class="btn btn-success btn-circle"><i class="ti-calendar"></i></span>
                                                     <div class="m-l-10">
@@ -431,7 +433,7 @@
                                                 </div>
                                             </a>
                                             <!-- Message -->
-                                            <a href="{{route('admin.setting')}}" class="link border-top">
+                                            <a href="<?php echo e(route('admin.setting')); ?>" class="link border-top">
                                                 <div class="d-flex no-block align-items-center p-10">
                                                     <span class="btn btn-info btn-circle"><i class="ti-settings"></i></span>
                                                     <div class="m-l-10">
@@ -451,7 +453,7 @@
                                                 </div>
                                             </a>
                                             <!-- Message -->
-                                            <a href="{{route('admin.adminsactives')}}" class="link border-top">
+                                            <a href="<?php echo e(route('admin.adminsactives')); ?>" class="link border-top">
                                                 <div class="d-flex no-block align-items-center p-10">
                                                     <span class="btn btn-danger btn-circle"><i class="fa fa-link"></i></span>
                                                     <div class="m-l-10">
@@ -474,26 +476,26 @@
                         <!-- ============================================================== -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="logo" style="display: none"></a>
-                            @if ( file_exists('img/admin_img/'.Auth::guard('admin')->user()->img))
+                            <?php if( file_exists('img/admin_img/'.Auth::guard('admin')->user()->img)): ?>
                             <a id="nav_img" class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img id="navimg"
-                                  src="{{asset('img/admin_img/'.Auth::guard('admin')->user()->img)}}" alt="admin" class="rounded-circle" height="51" width="51" title="{{Auth::guard('admin')->user()->name}}"></a>
-                            @else
+                                  src="<?php echo e(asset('img/admin_img/'.Auth::guard('admin')->user()->img)); ?>" alt="admin" class="rounded-circle" height="51" width="51" title="<?php echo e(Auth::guard('admin')->user()->name); ?>"></a>
+                            <?php else: ?>
                             <a id="nav_img" class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img id="navimg"
-                                  src="{{Auth::guard('admin')->user()->img}}" alt="admin" class="rounded-circle" height="51" width="51" title="{{Auth::guard('admin')->user()->name}}"></a>
-                            @endif
+                                  src="<?php echo e(Auth::guard('admin')->user()->img); ?>" alt="admin" class="rounded-circle" height="51" width="51" title="<?php echo e(Auth::guard('admin')->user()->name); ?>"></a>
+                            <?php endif; ?>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated">
-                                <a class="dropdown-item" href="{{url('/admin/profile  '.Auth::guard('admin')->user()->id)}}"><i class="ti-user m-r-5 m-l-5"></i> My Profile</a>
-                                <a class="dropdown-item" href="{{route('admin.MyPlans')}}"><i class="ti-wallet m-r-5 m-l-5"></i> My Plans</a>
-                                <a class="dropdown-item" href="{{route('admin.fullcalendar_index')}}"><i class="mdi mdi-calendar-check"></i> Add Plans</a>
+                                <a class="dropdown-item" href="<?php echo e(url('/admin/profile  '.Auth::guard('admin')->user()->id)); ?>"><i class="ti-user m-r-5 m-l-5"></i> My Profile</a>
+                                <a class="dropdown-item" href="<?php echo e(route('admin.MyPlans')); ?>"><i class="ti-wallet m-r-5 m-l-5"></i> My Plans</a>
+                                <a class="dropdown-item" href="<?php echo e(route('admin.fullcalendar_index')); ?>"><i class="mdi mdi-calendar-check"></i> Add Plans</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="{{route('admin.setting')}}"><i class="ti-settings m-r-5 m-l-5"></i> Account Setting</a>
+                                <a class="dropdown-item" href="<?php echo e(route('admin.setting')); ?>"><i class="ti-settings m-r-5 m-l-5"></i> Account Setting</a>
                                 <div class="dropdown-divider"></div>
 
-                                <a class="dropdown-item" href="{{ route('admin.logout') }}" onclick="event.preventDefault();
+                                <a class="dropdown-item" href="<?php echo e(route('admin.logout')); ?>" onclick="event.preventDefault();
                                               document.getElementById('logout-form').submit();">
-                                    <i class="fa fa-power-off m-r-5 m-l-5"></i> {{ __('Logout') }}</a>
-                                <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
-                                    @csrf
+                                    <i class="fa fa-power-off m-r-5 m-l-5"></i> <?php echo e(__('Logout')); ?></a>
+                                <form id="logout-form" action="<?php echo e(route('admin.logout')); ?>" method="POST" style="display: none;">
+                                    <?php echo csrf_field(); ?>
                                 </form>
                                 <div class="dropdown-divider"></div>
 
@@ -519,46 +521,46 @@
                 <!-- Sidebar navigation-->
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav" class="p-t-30">
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('admin.dashboard')}}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="<?php echo e(route('admin.dashboard')); ?>" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
                                   class="hide-menu">Dashboard</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="charts.html" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Charts</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">posts </span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
-                                <li class="sidebar-item"><a href="{{route('admin.posts')}}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> All posts </span></a></li>
-                                <li class="sidebar-item"><a href="{{route('admin.TrashPosts')}}" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> Trash posts </span></a></li>
-                                <li class="sidebar-item"><a href="{{route('admin.NewPost')}}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> New post </span></a></li>
-                                <li class="sidebar-item"><a href="{{route('admin.VideoPost')}}" class="sidebar-link"><i class="fa fa-film" aria-hidden="true"></i><span class="hide-menu"> New post with video </span></a></li>
+                                <li class="sidebar-item"><a href="<?php echo e(route('admin.posts')); ?>" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> All posts </span></a></li>
+                                <li class="sidebar-item"><a href="<?php echo e(route('admin.TrashPosts')); ?>" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu"> Trash posts </span></a></li>
+                                <li class="sidebar-item"><a href="<?php echo e(route('admin.NewPost')); ?>" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> New post </span></a></li>
+                                <li class="sidebar-item"><a href="<?php echo e(route('admin.VideoPost')); ?>" class="sidebar-link"><i class="fa fa-film" aria-hidden="true"></i><span class="hide-menu"> New post with video </span></a></li>
                             </ul>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fa fa-play-circle" aria-hidden="true"></i><span class="hide-menu">Videos </span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
-                                <li class="sidebar-item"><a href="{{route('admin.videos')}}" class="sidebar-link"><i class="fa fa-play-circle" aria-hidden="true"></i><span class="hide-menu"> All Videos </span></a></li>
-                                <li class="sidebar-item"><a href="{{route('admin.TrashVideos')}}" class="sidebar-link"><i class="fa fa-play-circle" aria-hidden="true"></i><span class="hide-menu"> Trash videos </span></a></li>
-                                <li class="sidebar-item"><a href="{{route('admin.NewVideo')}}" class="sidebar-link"><i class="fa fa-play-circle" aria-hidden="true"></i><span class="hide-menu"> New videos </span></a></li>
-                                <li class="sidebar-item"><a href="{{route('admin.NewVideoInPost')}}" class="sidebar-link"><i class="fa fa-film" aria-hidden="true"></i><span class="hide-menu"> New video in post </span></a></li>
+                                <li class="sidebar-item"><a href="<?php echo e(route('admin.videos')); ?>" class="sidebar-link"><i class="fa fa-play-circle" aria-hidden="true"></i><span class="hide-menu"> All Videos </span></a></li>
+                                <li class="sidebar-item"><a href="<?php echo e(route('admin.TrashVideos')); ?>" class="sidebar-link"><i class="fa fa-play-circle" aria-hidden="true"></i><span class="hide-menu"> Trash videos </span></a></li>
+                                <li class="sidebar-item"><a href="<?php echo e(route('admin.NewVideo')); ?>" class="sidebar-link"><i class="fa fa-play-circle" aria-hidden="true"></i><span class="hide-menu"> New videos </span></a></li>
+                                <li class="sidebar-item"><a href="<?php echo e(route('admin.NewVideoInPost')); ?>" class="sidebar-link"><i class="fa fa-film" aria-hidden="true"></i><span class="hide-menu"> New video in post </span></a></li>
 
 
                             </ul>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="fa fa-user-circle" aria-hidden="true"></i><span class="hide-menu">Users </span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
-                                <li class="sidebar-item"><a href="{{route('admin.actives')}}" class="sidebar-link"><i class="fa fa-user-circle" aria-hidden="true"></i><span class="hide-menu"> Actives </span></a></li>
-                                <li class="sidebar-item"><a href="{{route('admin.blocked')}}" class="sidebar-link"><i class="fa fa-user-times" aria-hidden="true"></i><span class="hide-menu"> Blocked </span></a></li>
+                                <li class="sidebar-item"><a href="<?php echo e(route('admin.actives')); ?>" class="sidebar-link"><i class="fa fa-user-circle" aria-hidden="true"></i><span class="hide-menu"> Actives </span></a></li>
+                                <li class="sidebar-item"><a href="<?php echo e(route('admin.blocked')); ?>" class="sidebar-link"><i class="fa fa-user-times" aria-hidden="true"></i><span class="hide-menu"> Blocked </span></a></li>
 
                             </ul>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-account-key"></i><span class="hide-menu">Admins </span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
-                                <li class="sidebar-item"><a href="{{route('admin.adminsactives')}}" class="sidebar-link"><i class="fa fa-user-circle" aria-hidden="true"></i><span class="hide-menu"> Actives </span></a></li>
-                                <li class="sidebar-item"><a href="{{route('admin.adminsblocked')}}" class="sidebar-link"><i class="fa fa-user-times" aria-hidden="true"></i><span class="hide-menu"> Blocked </span></a></li>
+                                <li class="sidebar-item"><a href="<?php echo e(route('admin.adminsactives')); ?>" class="sidebar-link"><i class="fa fa-user-circle" aria-hidden="true"></i><span class="hide-menu"> Actives </span></a></li>
+                                <li class="sidebar-item"><a href="<?php echo e(route('admin.adminsblocked')); ?>" class="sidebar-link"><i class="fa fa-user-times" aria-hidden="true"></i><span class="hide-menu"> Blocked </span></a></li>
                             </ul>
                         </li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-alert"></i><span class="hide-menu">Add Admins </span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
-                                <li class="sidebar-item"><a href="{{route('admin.AddAdmin')}}" class="sidebar-link"><i class="mdi mdi-alert-octagon"></i><span class="hide-menu"> Normal Admin </span></a></li>
-                                @if (Auth::guard('admin')->user()->superadmin)
-                                <li class="sidebar-item"><a href="{{route('admin.AddSuperAdmin')}}" class="sidebar-link"><i class="mdi mdi-alert-octagon"></i><span class="hide-menu"> Super Admin </span></a></li>
-                                @endif
+                                <li class="sidebar-item"><a href="<?php echo e(route('admin.AddAdmin')); ?>" class="sidebar-link"><i class="mdi mdi-alert-octagon"></i><span class="hide-menu"> Normal Admin </span></a></li>
+                                <?php if(Auth::guard('admin')->user()->superadmin): ?>
+                                <li class="sidebar-item"><a href="<?php echo e(route('admin.AddSuperAdmin')); ?>" class="sidebar-link"><i class="mdi mdi-alert-octagon"></i><span class="hide-menu"> Super Admin </span></a></li>
+                                <?php endif; ?>
                             </ul>
                         </li>
                     </ul>
@@ -586,3 +588,4 @@
             <!-- End Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
             <!-- ============================================================== -->
+<?php /**PATH C:\xampp\htdocs\Project\resources\views/admin/layout/header.blade.php ENDPATH**/ ?>
