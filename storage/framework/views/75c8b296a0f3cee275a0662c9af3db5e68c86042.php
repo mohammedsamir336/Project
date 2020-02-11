@@ -65,8 +65,11 @@
                                     <tr>
 
                                         <th>
-                                            <label class="customcheckbox" for="checkbox<?php echo e($data->id); ?>" onclick="if ($('#videocheckbox<?php echo e($data->id); ?>').prop( 'checked', false )){
-                                  $('#videocheckbox<?php echo e($data->id); ?>').prop( 'checked', true )}else{$('#videocheckbox<?php echo e($data->id); ?>').prop( 'checked', false )};">
+                                            <label class="customcheckbox" for="checkbox<?php echo e($data->id); ?>" onclick="if ($('#videocheckbox<?php echo e($data->id); ?>')
+                                              .prop( 'checked', false )){
+                                               $('#videocheckbox<?php echo e($data->id); ?>')
+                                               .prop( 'checked', true )
+                                               }else{$('#videocheckbox<?php echo e($data->id); ?>').prop( 'checked', false )};">
                                                 <input type="checkbox" name="id[]" class="listCheckbox" value="<?php echo e($data->id); ?>" id="checkbox<?php echo e($data->id); ?>">
                                                 <span class="checkmark"></span>
                                             </label>

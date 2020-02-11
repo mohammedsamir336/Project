@@ -74,9 +74,9 @@
                                     <td><?php echo e($data->view_count); ?></td>
 
                                     <?php if($data->videos_id): ?>
-                                    <td>Yes</td>
+                                    <td class="text-success">Yes</td>
                                     <?php else: ?>
-                                    <td>NO</td>
+                                    <td class="text-danger">NO</td>
                                     <?php endif; ?>
 
                                     <!-- count comments -->

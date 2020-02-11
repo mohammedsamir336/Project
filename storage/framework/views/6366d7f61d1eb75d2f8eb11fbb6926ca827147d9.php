@@ -1,11 +1,11 @@
-@include('admin.layout.header')
+<?php echo $__env->make('admin.layout.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <!-- if new message toggle title  -->
 <span id="page_name" style="display:none">All Videos</span>
 <title id="title">All Videos</title>
 
 
-<link rel="stylesheet" type="text/css" href="{{ asset('adminfolder/assets/extra-libs/multicheck/multicheck.css') }}">
-<link href="{{ asset('adminfolder/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css') }}" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="<?php echo e(asset('adminfolder/assets/extra-libs/multicheck/multicheck.css')); ?>">
+<link href="<?php echo e(asset('adminfolder/assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css')); ?>" rel="stylesheet">
 
 
 
@@ -24,17 +24,17 @@
     <div class="row">
         <div class="col-12">
 
-            @if (session('success'))
+            <?php if(session('success')): ?>
             <div class="alert alert-success" role="alert">
                 <h3>
-                    <!-- {{trans('message.success')}} -->{{ session('success') }} </h3>
+                    <!-- <?php echo e(trans('message.success')); ?> --><?php echo e(session('success')); ?> </h3>
 
             </div>
-            @endif
+            <?php endif; ?>
 
             <div class="card">
                 <div class="card-body">
-                    <h5 class="card-title"><u>All Videos</u> ({{$count}})</h5>
+                    <h5 class="card-title"><u>All Videos</u> (<?php echo e($count); ?>)</h5>
                     <div class="table-responsive">
                         <table id="zero_config" class="table table-striped table-bordered">
                             <thead>
@@ -57,27 +57,27 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($videos as $data)
+                                <?php $__currentLoopData = $videos; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $data): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                                 <tr>
-                                    <td>{{$data->id}}</td>
+                                    <td><?php echo e($data->id); ?></td>
 
 
                                     <td>
-                                        <nobr>{{$data->author}}</nobr>
+                                        <nobr><?php echo e($data->author); ?></nobr>
                                     </td>
 
                                     <td>
-                                        <nobr>{{$data->title}}</nobr>
+                                        <nobr><?php echo e($data->title); ?></nobr>
                                     </td>
 
-                                    <td>{!!$data->video!!}</td>
+                                    <td><?php echo $data->video; ?></td>
 
-                                    <td>{{$data->type}}</td>
+                                    <td><?php echo e($data->type); ?></td>
 
-                                    <td>{{$data->video_view_count}}</td>
+                                    <td><?php echo e($data->video_view_count); ?></td>
 
                                     <!-- know if video in post -->
-                                    <td>@php
+                                    <td><?php
                                         $video_post = App\posts::where('videos_id',$data->id)->first();
                                         if ($video_post )
                                         {
@@ -85,37 +85,37 @@
                                         }else{
                                         echo '<span class="table-remove"><a href="PutVideoInPost  '.$data->id.'" class="btn btn-success btn-rounded btn-sm my-0">Put in post</a></span>';
                                         }
-                                        @endphp
+                                        ?>
                                     </td>
 
 
                                     <td>
-                                        @if ( file_exists('img/admin_img/'.$data->videos_admins_id()->first()->img))
-                                        <nobr><a href="{{url('admin/profile  '.$data->videos_admins_id()->first()->id)}}">
-                                                <img class="card-img-50 z-depth-1 rounded-circle" src="{{asset('img/admin_img/'.$data->videos_admins_id()->first()->img)}}" alt="admin" width="30" height="30">
-                                                {{$data->videos_admins_id()->first()->name}}</a></nobr>
-                                        @else
-                                        <nobr><a href="{{url('admin/profile  '.$data->videos_admins_id()->first()->id)}}">
-                                                <img class="card-img-50 z-depth-1 rounded-circle" src="{{$data->videos_admins_id()->first()->img}}" alt="admin" width="30" height="30">
-                                                {{$data->videos_admins_id()->first()->name}}</a></nobr>
-                                        @endif
+                                        <?php if( file_exists('img/admin_img/'.$data->videos_admins_id()->first()->img)): ?>
+                                        <nobr><a href="<?php echo e(url('admin/profile  '.$data->videos_admins_id()->first()->id)); ?>">
+                                                <img class="card-img-50 z-depth-1 rounded-circle" src="<?php echo e(asset('img/admin_img/'.$data->videos_admins_id()->first()->img)); ?>" alt="admin" width="30" height="30">
+                                                <?php echo e($data->videos_admins_id()->first()->name); ?></a></nobr>
+                                        <?php else: ?>
+                                        <nobr><a href="<?php echo e(url('admin/profile  '.$data->videos_admins_id()->first()->id)); ?>">
+                                                <img class="card-img-50 z-depth-1 rounded-circle" src="<?php echo e($data->videos_admins_id()->first()->img); ?>" alt="admin" width="30" height="30">
+                                                <?php echo e($data->videos_admins_id()->first()->name); ?></a></nobr>
+                                        <?php endif; ?>
 
                                     </td>
 
                                     <td>
-                                        <nobr>{{$data->created_at->diffForHumans(null,true)}}</nobr>
+                                        <nobr><?php echo e($data->created_at->diffForHumans(null,true)); ?></nobr>
                                     </td>
 
                                     <td>
-                                        <nobr> <span class="table-remove"><a href="{{ url('admin/Edit/Video  '.$data->title) }}" class="btn btn-warning btn-rounded btn-sm my-0" target="_blank">edit video</a></span>
+                                        <nobr> <span class="table-remove"><a href="<?php echo e(url('admin/Edit/Video  '.$data->title)); ?>" class="btn btn-warning btn-rounded btn-sm my-0" target="_blank">edit video</a></span>
 
-                                            <span class="table-remove"><a href="{{ url('admin/del'.$data->id) }}" class="btn btn-danger btn-rounded btn-sm my-0" style="margin-left:10px;">
+                                            <span class="table-remove"><a href="<?php echo e(url('admin/del'.$data->id)); ?>" class="btn btn-danger btn-rounded btn-sm my-0" style="margin-left:10px;">
                                                     Delete video</a></span>
                                         </nobr>
                                     </td>
                                 </tr>
 
-                                @endforeach
+                                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                             </tbody>
                         </table>
 
@@ -129,4 +129,5 @@
     </div>
     <br>
     <br>
-    @include('admin.layout.footer')
+    <?php echo $__env->make('admin.layout.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php /**PATH C:\xampp\htdocs\Project\resources\views/admin/videos/AllVideos.blade.php ENDPATH**/ ?>

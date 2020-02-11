@@ -74,9 +74,9 @@
                                     <td>{{$data->view_count}}</td>
 
                                     @if ($data->videos_id)
-                                    <td>Yes</td>
+                                    <td class="text-success">Yes</td>
                                     @else
-                                    <td>NO</td>
+                                    <td class="text-danger">NO</td>
                                     @endif
 
                                     <!-- count comments -->
