@@ -76,10 +76,8 @@ $(document).on('click', 'button[data-id]', function (e) {
 
 /* time clock in nav bar*/
 function showTime() {
-   var date = new Date(),
-       cairo = new Date().toLocaleString({timeZone: "Africa/Cairo"});
-      cairo = new Date(cairo);
-   document.getElementById('date').innerHTML = cairo.toLocaleTimeString(/*'ar-EG'*/);
+  // js file in indexfolder/js moment.js
+   document.getElementById('date').innerHTML = moment().format('h:mm:ss ');
  }
  /*refresh time every a second*/
 setInterval(showTime, 1000);

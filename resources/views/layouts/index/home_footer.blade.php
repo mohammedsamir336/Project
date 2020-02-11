@@ -208,6 +208,11 @@
 <script type="text/javascript" src="{{ asset('js/mdb.min.js') }}"></script>
 <!--===============================================================================================-->
 <script src="{{ asset('indexfolder/js/main.js') }}"></script>
+<!-- time function JavaScript -->
+<script src="{{ asset('indexfolder/js/moment.js') }}"></script>
+
+<script src="{{ asset('indexfolder/js/MyTest.js') }}"></script>
+
 <script src="https://www.youtube.com/iframe_api"></script>
 <!-- all my js code-->
 <script src="{{ asset('indexfolder/js/MyTest.js') }}"></script>

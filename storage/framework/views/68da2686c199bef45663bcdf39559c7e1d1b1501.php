@@ -212,6 +212,11 @@
 <script type="text/javascript" src="<?php echo e(asset('js/mdb.min.js')); ?>"></script>
 <!--===============================================================================================-->
 <script src="<?php echo e(asset('indexfolder/js/main.js')); ?>"></script>
+<!-- time function JavaScript -->
+<script src="<?php echo e(asset('indexfolder/js/moment.js')); ?>"></script>
+
+<script src="<?php echo e(asset('indexfolder/js/MyTest.js')); ?>"></script>
+
 <script src="https://www.youtube.com/iframe_api"></script>
 <!-- all my js code-->
 <script src="<?php echo e(asset('indexfolder/js/MyTest.js')); ?>"></script>
