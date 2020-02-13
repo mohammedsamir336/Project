@@ -19,14 +19,24 @@
 /* Request::segment(1 or 2 or 3) to get routes url  in blade view*/
 //singleton To public share data in views or anything else
 
+
 app()->singleton('TestTon', function () {
-    // code...
-  return 'hi from singleton'; //in blade view {{app('TestTon')}}
+    return 'hi from singleton'; //in blade view {{app('TestTon')}}
   //return view('home'); //in blade view {!!app('TestTon') !!}
 });
 
+   //cache Route test
+  /*Route::get('cache', function () {
+    $value = \Cache::remember('comments', 1, function () {
+        return \DB::table('comments')->get();
+    });
+    /*\Cache::put('ss', 'sadsa');
+    return $value = \Cache::get('ss');
+    return  \Cache::pull('comments');
+     });*/
+
       Route::pattern('id', '[0-9]+');
-//Route::pattern('name','[a-z]+');
+      //Route::pattern('name','[a-z]+');
       Route::view('/', 'welcome')->name('welcome');
 
       /*Route::get('test', function () {
@@ -108,6 +118,16 @@ Route::group(['middleware' => 'language'], function () {
         return back();
     });
 });
+
+//route for notify new message number with no refresh page in admin header
+Route::get('message_notfiy', function () {
+    header('Content-Type: text/event-stream');
+    header('Cache-Control: no-cache');
+    $count =\App\contact::where('status', 0)->count();
+    echo "data: {$count}\n\n";
+    flush();
+});
+
  /*Route::namespace('admin')->prefix('admin')->name('admin.')->group(function ()
  {
    Route::resource('/users','usercontroller',['except'=> ['show','create','store']]);

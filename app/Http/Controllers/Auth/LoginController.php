@@ -8,6 +8,9 @@ use Socialite;
 use App\User;
 use Auth;
 
+/*in Illuminate\Foundation\Auth\AuthenticatesUsers (sendFailedLoginResponse)
+   where go if Validation fail*/
+
 class LoginController extends Controller
 {
     /*

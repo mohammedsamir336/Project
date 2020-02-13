@@ -79,7 +79,7 @@ return [
     | to any of the locales which will be supported by the application.
     |
     */
-    
+
     'locale' => 'en',
 
     /*
@@ -162,6 +162,8 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
         Bmatovu\MultiAuth\MultiAuthServiceProvider::class,
+        Sarfraznawaz2005\SSE\ServiceProvider::class,
+
 
 
         /*
@@ -233,6 +235,7 @@ return [
         'Image' => Intervention\Image\Facades\Image::class,
         'Nexmo' => Nexmo\Laravel\Facade\Nexmo::class,
         'Language'   => Akaunting\Language\Facade::class,
+        'SSE' => Sarfraznawaz2005\SSE\Facades\SSEFacade::class,
 
 
 

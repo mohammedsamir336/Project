@@ -4,12 +4,14 @@ namespace App;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use GeneaLabs\LaravelModelCaching\Traits\Cachable;
+
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
-
+    use Cachable;//cach package
 
     /*  protected static function boot()
 {

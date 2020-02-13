@@ -49,4 +49,5 @@ return array(
     'cc8e14526dc240491e17a838cb78508c' => $vendorDir . '/laminas/laminas-diactoros/src/functions/normalize_server.legacy.php',
     '786bf90caabc9e09b6ad4cc5ca8f0e30' => $vendorDir . '/laminas/laminas-diactoros/src/functions/normalize_uploaded_files.legacy.php',
     '751a5a3f463e4be759be31748b61737c' => $vendorDir . '/laminas/laminas-diactoros/src/functions/parse_cookie_header.legacy.php',
+    '0c59052f0b04ea3aac2244eef54731e1' => $vendorDir . '/sarfraznawaz2005/laravel-sse/src/Helpers/helper.php',
 );

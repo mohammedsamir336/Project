@@ -6,45 +6,39 @@ use Illuminate\Http\Request;
 use DB;
 use Carbon\Carbon;
 use Str;
+
 class LoadMoreController extends Controller
 {
-    function index()
+    public function index()
     {
-     return view('load_more');
+        return view('load_more');
     }
 
-    function load_data(Request $request)
+    public function load_data(Request $request)
     {
-     if($request->ajax())
-     {
-      if($request->id > 0)
-      {
-       $data = DB::table('posts')
+        if ($request->ajax()) {
+            if ($request->id > 0) {
+                $data = DB::table('posts')
           ->where('id', '<', $request->id)
           ->whereNull('deleted_at')
           ->orderBy('id', 'DESC')
           ->limit(5)
           ->get();
-      }
-      else
-      {
-       $data = DB::table('posts')
+            } else {
+                $data = DB::table('posts')
           ->whereNull('deleted_at')
           ->orderBy('id', 'DESC')
           ->limit(5)
           ->get();
-      }
-      $output = '';
-      $last_id = '';
+            }
+            $output = '';
+            $last_id = '';
 
-      if(!$data->isEmpty())
-      {
-       foreach($data as $latest)
-       {
+            if (!$data->isEmpty()) {
+                foreach ($data as $latest) {
+                    $d=strtotime("$latest->created_at");
 
-       $d=strtotime("$latest->created_at");
-
-        $output .= '
+                    $output .= '
           <div class="flex-wr-sb-s p-t-40 p-b-15 how-bor2">
            <div class="bg-img1 size-a-5 how1 pos-relative" style="background-image: url(indexfolder/images/'.$latest->img.');">
              <a href="read = '.$latest->header.'" class="dis-block how1-child1 trans-03"></a>
@@ -73,14 +67,14 @@ class LoadMoreController extends Controller
       </span>
 
       <span class="f1-s-3">
-        '.date("M d", $d ).' at: '.date("g:iA", $d ).'
+        '.date("M d", $d).' at: '.date("g:iA", $d).'
       </span>
     </div>
 
     <div class="f1-s-1 cl6 p-b-24">
      <h5 class="p-b-5">
        <a href="read = '.$latest->header.'" class="f1-m-3 cl2 hov-cl10 trans-03">
-          '.Str::words($latest->p1,4).'
+          '.Str::words($latest->p1, 4).'
        </a>
      </h5>
     </div>
@@ -91,27 +85,25 @@ class LoadMoreController extends Controller
      </div>
    </div>
         ';
-        $last_id = $latest->id;
-       }
-       $output .= '
+                    $last_id = $latest->id;
+                }
+                $output .= '
        <div id="load_more">
        <button type="button"  name="load_more_button" data-id="'.$last_id.'" class="flex-c-c size-a-13 bo-all-1 bocl11 f1-m-6 cl6 hov-btn1 trans-03" id="load_more_button">
          Load More
        </button>
        </div>
        ';
-      }
-      else
-      {
-       $output .= '
+            } else {
+                $output .= '
        <div id="load_more">
        <button type="button"  name="load_more_button" class="flex-c-c size-a-13 bo-all-1 bocl11 f1-m-6 cl6 hov-btn1 trans-03" >
           No Data Found
         </button>
        </div>
        ';
-      }
-    echo $output;
-     }
+            }
+            echo $output;
+        }
     }
 }

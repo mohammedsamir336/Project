@@ -107,7 +107,7 @@ Route::group(['namespace' => 'Admin'], function () {
         Route::get('/message/AsRead{id?}', 'Contacts_MessageController@Contacts_AsRead')->name('admin.Contacts_AsRead');
         /*read one Message*/
         Route::get('/message/read {id}', 'Contacts_MessageController@Contacts_Read')->name('admin.Contacts_Read');
-
+        
 
         //fullcalender
         Route::get('/fullcalendar', 'FullCalendarController@index')->name('admin.fullcalendar_index');

@@ -32,6 +32,8 @@ final class Versions
   'egulias/email-validator' => '2.1.15@e834eea5306d85d67de5a05db5882911d5b29357',
   'embed/embed' => 'v3.4.2@dc1dc3c126f8a78acdae06b83f591c0728ea131d',
   'fideloper/proxy' => '4.2.2@790194d5d3da89a713478875d2e2d05855a90a81',
+  'genealabs/laravel-model-caching' => '0.7.4@aa0253e3a5a6dfc5482b68cb177f50a746c30661',
+  'genealabs/laravel-pivot-events' => '0.2.1@c31bc7cb6b89741d5d2f52284ddd6f22064e2ed0',
   'guzzlehttp/guzzle' => '6.5.2@43ece0e75098b7ecd8d13918293029e555a50f82',
   'guzzlehttp/promises' => 'v1.3.1@a59da6cf61d80060647ff4d3eb2c03a2bc694646',
   'guzzlehttp/psr7' => '1.6.1@239400de7a173fe9901b9ac7c06497751f00727a',
@@ -64,6 +66,7 @@ final class Versions
   'php-http/httplug' => '2.1.0@72d2b129a48f0490d55b7f89be0d6aa0597ffb06',
   'php-http/promise' => 'v1.0.0@dc494cdc9d7160b9a09bd5573272195242ce7980',
   'phpoption/phpoption' => '1.7.2@77f7c4d2e65413aff5b5a8cc8b3caf7a28d81959',
+  'predis/predis' => 'v1.1.1@f0210e38881631afeafb56ab43405a92cafd9fd1',
   'psr/container' => '1.0.0@b7ce3b176482dbbc1245ebf52b181af44c2cf55f',
   'psr/http-client' => '1.0.0@496a823ef742b632934724bf769560c2a5c7c44e',
   'psr/http-factory' => '1.0.1@12ac7fcd07e5b077433f5f2bee95b3a771bf61be',
@@ -73,6 +76,7 @@ final class Versions
   'psy/psysh' => 'v0.9.12@90da7f37568aee36b116a030c5f99c915267edd4',
   'ralouphie/getallheaders' => '3.0.3@120b605dfeb996808c31b6477290a714d356e822',
   'ramsey/uuid' => '3.9.2@7779489a47d443f845271badbdcedfe4df8e06fb',
+  'sarfraznawaz2005/laravel-sse' => '1.1.0@5897c9981d3df6132453005936a0669000eb59f8',
   'sinergi/browser-detector' => '6.0.5@7fcda47cf2690fb978c8cee3ba7304b7dca1bcc7',
   'swiftmailer/swiftmailer' => 'v6.2.3@149cfdf118b169f7840bbe3ef0d4bc795d1780c9',
   'symfony/console' => 'v4.4.4@f512001679f37e6a042b51897ed24a2f05eba656',
@@ -142,7 +146,7 @@ final class Versions
   'tanmuhittin/laravel-google-translate' => '1.0.3@7b4efd17e509a10fa7e8ae32dd458dd96f97bf27',
   'theseer/tokenizer' => '1.1.3@11336f6f84e16a720dae9d8e6ed5019efa85a0f9',
   'webmozart/assert' => '1.6.0@573381c0a64f155a0d9a23f4b0c797194805b925',
-  'laravel/laravel' => 'dev-master@fa10c269be59cd62c9dc5f819f8ae8757df6cfa9',
+  'laravel/laravel' => 'dev-master@e4d49f43e0f32f0acb8a6d430d17e5d98f894633',
 );
 
     private function __construct()

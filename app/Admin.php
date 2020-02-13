@@ -6,12 +6,14 @@ use App\Notifications\Admin\Auth\ResetPassword;
 use App\Notifications\Admin\Auth\VerifyEmail;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use GeneaLabs\LaravelModelCaching\Traits\Cachable;
+
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class Admin extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
-
+    use Cachable;//cach package
     /**
      * The attributes that are mass assignable.
      *

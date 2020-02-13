@@ -49,6 +49,13 @@
       0 => 'Fideloper\\Proxy\\TrustedProxyServiceProvider',
     ),
   ),
+  'genealabs/laravel-model-caching' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'GeneaLabs\\LaravelModelCaching\\Providers\\Service',
+    ),
+  ),
   'intervention/image' => 
   array (
     'providers' => 
@@ -126,6 +133,17 @@
     'providers' => 
     array (
       0 => 'NunoMaduro\\Collision\\Adapters\\Laravel\\CollisionServiceProvider',
+    ),
+  ),
+  'sarfraznawaz2005/laravel-sse' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Sarfraznawaz2005\\SSE\\ServiceProvider',
+    ),
+    'aliases' => 
+    array (
+      'SSE' => 'Sarfraznawaz2005\\SSE\\Facades\\SSEFacade',
     ),
   ),
   'tanmuhittin/laravel-google-translate' => 

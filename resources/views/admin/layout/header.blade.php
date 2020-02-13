@@ -223,7 +223,7 @@
 
 <body>
     <!-- for title if admin have  new message -->
-    <span id="message_notif" style="display:none">({{$notfiy}}) New Message...</span>
+    <span id="message_notif" style="display:none"></span>
     <!-- ============================================================== -->
     <!-- Preloader - style you can find in spinners.css -->
     <!-- ============================================================== -->
@@ -319,15 +319,19 @@
                             <a class="nav-link text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="mdi mdi-bell font-24"></i>
                                 @if ($notfiy > 0)
-                                <!-- $notfiy  count of Messages -->
-                                <span class="badge badge-danger badge-pill">{{$notfiy}}</span>
-                                @endif
+                                <!-- $notfiy  count of Messages id result number of messages-->
+                                <span id="result" class="badge badge-danger badge-pill"></span>
                             </a>
+
+                            @endif
+
+
+
                             <ul class="dropdown-menu scrollable-menu">
                                 <li class="head text-light bg-dark">
                                     <div class="row">
                                         <div class="col-lg-12 col-sm-12 col-12">
-                                            <span>Messages Not Read ({{$notfiy}})</span>
+                                            <span>Messages Not Read (<span id="notfiy"></span >)</span>
                                             <a href="{{url('admin/message/AsRead')}}" class="float-right text-light">Mark all as read</a>
                                         </div>
                                 </li>
@@ -586,3 +590,15 @@
             <!-- End Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
             <!-- ============================================================== -->
+            <!-- get notfiy  of new messages number from route function im web url message_notfiy -->
+            <script>
+
+               var source = new EventSource("{{url('message_notfiy')}}");
+               source.onmessage = function(event) {
+                 document.getElementById("result").innerHTML = event.data;
+                 document.getElementById("notfiy").innerHTML = event.data;
+                 //message_notif for title
+                 document.getElementById("message_notif").innerHTML = '(' + event.data + ')' + ' ' +'New Message...';
+               };
+
+             </script>

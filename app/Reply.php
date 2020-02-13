@@ -3,15 +3,17 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 
 class Reply extends Model
 {
-
-  /**
-     * The attributes that are mass assignable.
-     *
-     * @var array
-     */
+    use Cachable;//cach package
+    
+    /**
+       * The attributes that are mass assignable.
+       *
+       * @var array
+       */
     protected $fillable = [
           'reply','name_reply','reply_users_id','reply_comments_id','email_reply',
     ];
@@ -23,19 +25,17 @@ class Reply extends Model
 
     public function reply_users_id()
     {
-      return $this->hasOne('App\User', 'id', 'reply_users_id');
+        return $this->hasOne('App\User', 'id', 'reply_users_id');
 
-      //{{$data->reply_users_id()->first()->name}}
-
+        //{{$data->reply_users_id()->first()->name}}
     }
 
 
     public function comments_id()
     {
-      return $this->hasOne('App\comments', 'id', 'reply_comments_id');
+        return $this->hasOne('App\comments', 'id', 'reply_comments_id');
 
-      //{{$data->comments_id()->first()->name}}
-
+        //{{$data->comments_id()->first()->name}}
     }
 
     /*  public function rep()
@@ -45,5 +45,4 @@ class Reply extends Model
         //{{$data->rep()->first()->text}}
 
       }*/
-
 }

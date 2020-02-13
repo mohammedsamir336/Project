@@ -3,10 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 
 class contact extends Model
 {
-  protected $fillable = [
+    use Cachable;//cach package
+    
+  
+    protected $fillable = [
     'name',
     'email',
     'sub',
@@ -17,17 +21,14 @@ class contact extends Model
     ];
 
 
-/*
- */protected $dates = ['created_at'];
+    /*
+     */protected $dates = ['created_at'];
 
 
-  public function users_id()
-  {
-    return $this->hasOne('App\User', 'id', 'users_id');
-    
-    //{{$data->users_id()->first()->name}}
+    public function users_id()
+    {
+        return $this->hasOne('App\User', 'id', 'users_id');
 
-  }
-
-
+        //{{$data->users_id()->first()->name}}
+    }
 }

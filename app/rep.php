@@ -3,46 +3,43 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 
 class rep extends Model
 {
-
+    use Cachable;//cach package
     /**
        * The attributes that are mass assignable.
        *
        * @var array
        */
-      protected $fillable = [
+    protected $fillable = [
             'reptext','name_rep','rep_users_id','rep_comments_id','email_rep','rep_rep_id',
       ];
 
-      /*
-       */protected $dates = ['created_at'];
+    /*
+     */protected $dates = ['created_at'];
 
 
-      public function RepUsers()
-      {
+    public function RepUsers()
+    {
         return $this->hasOne('App\User', 'id', 'rep_users_id');
 
         //{{$data->rep_users_id()->first()->name}}
+    }
 
-      }
 
-
-      public function comments_id()
-      {
+    public function comments_id()
+    {
         return $this->hasOne('App\comments', 'id', 'rep_comments_id');
 
         //{{$data->comments_id()->first()->name}}
+    }
 
-      }
-
-      public function rep_rep_id()
-      {
+    public function rep_rep_id()
+    {
         return $this->hasOne('App\Reply', 'reply_id', 'rep_rep_id');
 
         //{{$data->reply_users_id()->first()->name}}
-
-      }
-
+    }
 }

@@ -88,6 +88,5 @@
 </div>
 <br>
 <br>
-
  <!-- script in footer-->
 @include('admin.layout.footer')

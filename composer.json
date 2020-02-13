@@ -13,6 +13,7 @@
         "bmatovu/multi-auth": "^8.0",
         "embed/embed": "^3.4",
         "fideloper/proxy": "^4.0",
+        "genealabs/laravel-model-caching": "*",
         "intervention/image": "^2.5",
         "jorenvanhocht/laravel-share": "^3.1",
         "laminas/laminas-diactoros": "^2.2",
@@ -21,7 +22,9 @@
         "laravel/tinker": "^1.0",
         "laravel/ui": "^1.1",
         "laraveldaily/laravel-charts": "^0.1.13",
-        "nexmo/laravel": "^2.1"
+        "nexmo/laravel": "^2.1",
+        "predis/predis": "^1.1",
+        "sarfraznawaz2005/laravel-sse": "^1.1"
     },
     "require-dev": {
         "andrey-helldar/laravel-lang-publisher": "^2.1",
