@@ -35,7 +35,6 @@ Route::group(['namespace' => 'Admin'], function () {
         Route::view('/setting', 'admin.setting')->name('admin.setting');
         Route::post('/ajax_upload/action', 'adminController@img_upload')->name('admin.uploadimg');
 
-
         //users table
         Route::get('/users/actives', 'adminController@users_actives')->name('admin.actives');
         /* block users*/
@@ -107,7 +106,7 @@ Route::group(['namespace' => 'Admin'], function () {
         Route::get('/message/AsRead{id?}', 'Contacts_MessageController@Contacts_AsRead')->name('admin.Contacts_AsRead');
         /*read one Message*/
         Route::get('/message/read {id}', 'Contacts_MessageController@Contacts_Read')->name('admin.Contacts_Read');
-        
+
 
         //fullcalender
         Route::get('/fullcalendar', 'FullCalendarController@index')->name('admin.fullcalendar_index');

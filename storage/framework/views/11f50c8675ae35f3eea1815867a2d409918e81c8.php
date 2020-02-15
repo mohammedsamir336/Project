@@ -10,7 +10,7 @@
             <div class="p-2"><img src="<?php echo e(asset('indexfolder/images/'.$data->img)); ?>" alt="posts" width="50" class="rounded-circle"></div>
             <div class="comment-text w-100">
                 <h6 class="font-medium"><?php echo e($data->header); ?></h6>
-                <span class="m-b-15 d-block"><?php echo e($data->p1); ?> </span>
+                <span class="m-b-15 d-block"><?php echo $data->p1; ?> </span>
                 <div class="comment-footer">
                     <span class="text-muted float-right"><?php echo e($data->created_at->format('M d, Y')); ?></span>
                     <a href="<?php echo e(url('admin/edit  '.$data->header)); ?>" class="btn btn-cyan btn-sm">Edit</a>
@@ -19,9 +19,9 @@
                 </div>
             </div>
         </div>
-          <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
-          <?php endif; ?>
-      
+        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
+        <?php endif; ?>
+
     </div>
 </div>
 <?php /**PATH C:\xampp\htdocs\Project\resources\views/admin/layout/latest_posts.blade.php ENDPATH**/ ?>

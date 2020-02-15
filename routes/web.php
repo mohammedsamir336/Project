@@ -118,15 +118,10 @@ Route::group(['middleware' => 'language'], function () {
         return back();
     });
 });
-
-//route for notify new message number with no refresh page in admin header
-Route::get('message_notfiy', function () {
-    header('Content-Type: text/event-stream');
-    header('Cache-Control: no-cache');
-    $count =\App\contact::where('status', 0)->count();
-    echo "data: {$count}\n\n";
-    flush();
-});
+// notify for new message
+Route::get('/notifyMessage', 'Admin\Contacts_MessageController@notifyMessage');
+// get new message by ajax in admin footer
+Route::post('getNewMessage', 'Admin\Contacts_MessageController@getNewMessage');
 
  /*Route::namespace('admin')->prefix('admin')->name('admin.')->group(function ()
  {

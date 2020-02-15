@@ -217,6 +217,62 @@
       }
     });
 
+    /*get notfiy  of new messages number from route function in web url notifyMessage
+    for header admin*/
+    $(document).ready(function() {
+
+    function load_data() {
+    $.ajax({
+    url: "{{ url('notifyMessage') }}",
+    method: "GET",
+    error: function() {
+    // will fire when timeout is reached
+    },
+    success: function(data) {
+      if (data > 0) {
+
+          document.getElementById("result").innerHTML = data;
+          //change title if new message
+          document.title = '(' + data + ')' + ' ' + 'New Message...';
+          //message_notif for title
+          document.getElementById("message_notif").innerHTML = '(' + data + ')' + ' ' + 'New Message...';
+      }
+      document.getElementById("notfiy").innerHTML = data;
+
+    },
+    timeout: 2000 // sets timeout to 3 seconds
+    });
+    }
+
+
+    //get new message for admin header in Contacts_MessageController
+
+        var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+        load();
+
+        function load() {
+            $.ajax({
+                url: "{{ url('getNewMessage') }}",
+                method: "POST",
+                data:{ _token: CSRF_TOKEN},
+                error: function() {
+                    // will fire when timeout is reached
+                },
+                success: function(data) {
+                  $('#mm').html(data);
+                    //document.getElementById("mm").innerHTML = data;
+                },
+
+            });
+        }
+        //function load every 2 seconds
+        myVar =  setInterval(function () {
+        load();
+        load_data();
+    }, 2000);
+    });
+
 
 </script>
 

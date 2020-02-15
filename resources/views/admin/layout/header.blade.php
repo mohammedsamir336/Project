@@ -318,12 +318,10 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link text-light" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                 <i class="mdi mdi-bell font-24"></i>
-                                @if ($notfiy > 0)
-                                <!-- $notfiy  count of Messages id result number of messages-->
+
+                                <!-- $notfiy  count of Messages id result number of messages js in footer-->
                                 <span id="result" class="badge badge-danger badge-pill"></span>
                             </a>
-
-                            @endif
 
 
 
@@ -331,77 +329,14 @@
                                 <li class="head text-light bg-dark">
                                     <div class="row">
                                         <div class="col-lg-12 col-sm-12 col-12">
-                                            <span>Messages Not Read (<span id="notfiy"></span >)</span>
+                                            <span>Messages Not Read (<span id="notfiy"></span>)</span>
                                             <a href="{{url('admin/message/AsRead')}}" class="float-right text-light">Mark all as read</a>
                                         </div>
                                 </li>
-
-                                <!-- $contact and $notfiy in App\Http\view\Composers -->
-                                @foreach ($contact as $message)
-                                <!-- if Not read message background will be gray -->
-                                @if ($message->status)
-                                <li class="notification-box ">
-                                    <div class="row">
-                                        <div class="col-lg-3 col-sm-3 col-3 text-center ">
-                                            <!-- if users -->
-                                            @if ( $message->users_id )
-                                            @if ( file_exists('img/users_img/'.$message->users_id()->first()->img))
-                                            <img class="w-50 rounded-circle" src="{{asset('img/users_img/'.$message->users_id()->first()->img)}}" alt="avatar" height="51px">
-                                            @else
-                                            <!-- if img users from socialite -->
-                                            <img class="w-50 rounded-circle" src="{{$message->users_id()->first()->img}}" alt="avatar" height="51px">
-                                            @endif
-                                            <!-- if Not guest -->
-                                            @else
-                                            <div class="msgw-Avatar msgw-Avatar--sm msgw-Avatar--black ml-4">{{strtoupper(mb_substr($message->name,0,1,'utf-8'))}}</div>
-
-                                            @endif
-                                        </div>
-
-                                        <div class="col-lg-8 col-sm-8 col-8 ">
-                                            <a href="{{url('admin/message/read '.$message->id)}}"><strong class="text-info">{{$message->name}}</strong>
-                                                <div class="text-dark">
-                                                    {{$message->sub}}
-                                                </div>
-                                                <small class="text-warning">{{$message->created_at->format('dD M Y h:sA')}}, {{$message->created_at->longAbsoluteDiffForHumans()}} <!-- diffForHumans(null,true,true) --></small>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </li>
-
-
-                                @else
-                                <!-- if Not read message background will be gray -->
-                                <li class="notification-box bg-gray">
-                                    <div class="row">
-                                        <div class="col-lg-3 col-sm-3 col-3 text-center ">
-                                            <!-- if users -->
-                                            @if ( $message->users_id )
-                                            @if ( file_exists('img/users_img/'.$message->users_id()->first()->img))
-                                            <img class="w-50 rounded-circle" src="{{asset('img/users_img/'.$message->users_id()->first()->img)}}" alt="avatar" height="51px">
-                                            @else
-                                            <!-- if img users from socialite -->
-                                            <img class="w-50 rounded-circle" src="{{$message->users_id()->first()->img}}" alt="avatar" height="51px">
-                                            @endif
-                                            <!-- if Not users -->
-                                            @else
-                                            <div class="msgw-Avatar msgw-Avatar--sm msgw-Avatar--black ml-4">{{strtoupper(mb_substr($message->name,0,1,'utf-8'))}}</div>
-                                            @endif
-
-                                        </div>
-
-                                        <div class="col-lg-8 col-sm-8 col-8 ">
-                                            <a href="{{url('admin/message/read '.$message->id)}}"><strong class="text-info">{{$message->name}}</strong>
-                                                <div class="text-dark">
-                                                    {{$message->sub}}
-                                                </div>
-                                                <small class="text-warning">{{$message->created_at}}, {{$message->created_at->longAbsoluteDiffForHumans()}} <!-- diffForHumans(null,true,true) --></small>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </li>
-                                @endif
-                                @endforeach
+                                <!-- ajax get new message without page reload in footer and Contacts_MessageController -->
+                                <div class="" id="mm">
+                                  @csrf
+                                </div>
 
                                 <li class="footer bg-dark text-center">
                                     <a href="{{route('admin.Contacts_Message')}}" class="text-light">View All</a>
@@ -525,7 +460,7 @@
                     <ul id="sidebarnav" class="p-t-30">
                         <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('admin.dashboard')}}" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span
                                   class="hide-menu">Dashboard</span></a></li>
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="charts.html" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Charts</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{route('admin.dashboard')}}" aria-expanded="false"><i class="mdi mdi-chart-bar"></i><span class="hide-menu">Charts</span></a></li>
                         <li class="sidebar-item"> <a class="sidebar-link has-arrow waves-effect waves-dark" href="javascript:void(0)" aria-expanded="false"><i class="mdi mdi-receipt"></i><span class="hide-menu">posts </span></a>
                             <ul aria-expanded="false" class="collapse  first-level">
                                 <li class="sidebar-item"><a href="{{route('admin.posts')}}" class="sidebar-link"><i class="mdi mdi-note-outline"></i><span class="hide-menu"> All posts </span></a></li>
@@ -590,15 +525,30 @@
             <!-- End Bread crumb and right sidebar toggle -->
             <!-- ============================================================== -->
             <!-- ============================================================== -->
-            <!-- get notfiy  of new messages number from route function im web url message_notfiy -->
+
             <script>
+                //url in admin route
+                /*var source = new EventSource("{{url('admin/message_notfiy')}}");
+                source.onmessage = function(event) {
 
-               var source = new EventSource("{{url('message_notfiy')}}");
-               source.onmessage = function(event) {
-                 document.getElementById("result").innerHTML = event.data;
-                 document.getElementById("notfiy").innerHTML = event.data;
-                 //message_notif for title
-                 document.getElementById("message_notif").innerHTML = '(' + event.data + ')' + ' ' +'New Message...';
-               };
 
-             </script>
+                    //var id = $(this).attr('data-id');
+
+                    /*load_data();
+
+                      function load_data( )
+                      {
+                         $.ajax({
+                          url:"{{ url('tt') }}",
+                          method:"GET",
+                          //data:{id:id},
+                        success:function(data)
+                        {
+                          document.getElementById("mm").innerHTML = data;
+                        }
+                       })
+                     }
+
+                };*/
+
+            </script>

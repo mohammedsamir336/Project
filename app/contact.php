@@ -8,8 +8,8 @@ use GeneaLabs\LaravelModelCaching\Traits\Cachable;
 class contact extends Model
 {
     use Cachable;//cach package
-    
-  
+
+
     protected $fillable = [
     'name',
     'email',

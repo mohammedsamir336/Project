@@ -1,4 +1,4 @@
-@include('admin.layout.header')
+<?php echo $__env->make('admin.layout.header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <!-- if new message toggle title  -->
 <span id="page_name" style="display:none">Read Message</span>
 <title id="title">Read Message</title>
@@ -14,14 +14,16 @@
                 <div class="col-md-12">
                     <div class="pull-left">
                         <address>
-                            <h3> &nbsp;<b class="text-danger">{{$message->sub}}</b></h3>
-                            <p class="text-muted m-l-5">{{$message->name}}
-                                <br />{{$message->email}}
-                                @if ($message->users_id)
-                                <br /><a href="{{url('p  '.$message->email)}}" class="text-success" target="_blank">User</a>
-                                @else
+                            <h3> &nbsp;<b class="text-danger"><?php echo e($message->sub); ?></b></h3>
+                            <p class="text-muted m-l-5"><?php echo e($message->name); ?>
+
+                                <br /><?php echo e($message->email); ?>
+
+                                <?php if($message->users_id): ?>
+                                <br /><a href="<?php echo e(url('p  '.$message->email)); ?>" class="text-success" target="_blank">User</a>
+                                <?php else: ?>
                                 <br />guest
-                                @endif
+                                <?php endif; ?>
                             </p>
                         </address>
                     </div>
@@ -29,9 +31,10 @@
                         <address>
                             <h3>Text</h3>
                             <p class="text-muted m-l-30">
-                                {{$message->text}}
+                                <?php echo e($message->text); ?>
+
                             </p>
-                            <p class="m-t-30"><b>Date :</b> <i class="fa fa-calendar"></i> {{$message->created_at->format('dD M Y')}}</p>
+                            <p class="m-t-30"><b>Date :</b> <i class="fa fa-calendar"></i> <?php echo e($message->created_at->format('dD M Y')); ?></p>
                         </address>
                     </div>
                 </div>
@@ -49,15 +52,15 @@
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td class="text-center">{{$message->id}}</td>
-                                    <td>{{$message->email}}</td>
-                                    <td class="text-right"> {{$message->name}}</td>
-                                    <td class="text-right">{{$message->sub}}</td>
-                                    @if ($message->users_id)
-                                    <td class="text-right"><a href="{{url('p  '.$message->email)}}" class="text-success" target="_blank">User</a></td>
-                                    @else
+                                    <td class="text-center"><?php echo e($message->id); ?></td>
+                                    <td><?php echo e($message->email); ?></td>
+                                    <td class="text-right"> <?php echo e($message->name); ?></td>
+                                    <td class="text-right"><?php echo e($message->sub); ?></td>
+                                    <?php if($message->users_id): ?>
+                                    <td class="text-right"><a href="<?php echo e(url('p  '.$message->email)); ?>" class="text-success" target="_blank">User</a></td>
+                                    <?php else: ?>
                                     <td class="text-right">guest</td>
-                                    @endif
+                                    <?php endif; ?>
 
                                 </tr>
                             </tbody>
@@ -70,7 +73,7 @@
                     <div class="clearfix"></div>
                     <hr>
                     <div class="text-right">
-                        <form action="{{url('admin/message/delete'.$message->id)}}" method="get">
+                        <form action="<?php echo e(url('admin/message/delete'.$message->id)); ?>" method="get">
                             <button type="submit" name="From_ReadMessage" class="btn btn-danger"> Delete Message </button>
                         </form>
 
@@ -83,4 +86,5 @@
 <br>
 <br>
 
-@include('admin.layout.footer')
+<?php echo $__env->make('admin.layout.footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php /**PATH C:\xampp\htdocs\Project\resources\views/admin/Message_Read.blade.php ENDPATH**/ ?>

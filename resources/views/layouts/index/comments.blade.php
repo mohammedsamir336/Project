@@ -29,9 +29,9 @@
 <!--if guest img-->
   @else
       <!--strtoupper() for Uppercase first letter and mb_substr for arabic name-->
-  <div class="msgw-Avatar msgw-Avatar--sm msgw-Avatar--black">{{strtoupper(mb_substr(Auth::user()->name,0,1,'utf-8'))}}</div>
-      <!--<img class="card-img-64 rounded-circle z-depth-1 d-flex mx-auto mb-3" src="{{asset('img/m.png')}}"
-        alt="Generic placeholder image">-->
+  <!--<div class="msgw-Avatar msgw-Avatar--sm msgw-Avatar--black">{{strtoupper(mb_substr($comments->name,0,1,'utf-8'))}}</div>-->
+      <img class="card-img-64 rounded-circle z-depth-1 d-flex mx-auto mb-3" src="https://ui-avatars.com/api/?background=0D8ABC&color=fff&length=1&rounded=true&bold=true&size=65&name={{$comments->name_comments}}"
+        alt="Generic placeholder image">
   @endif
     <div class="media-body text-center text-md-left ml-md-3 ml-0">
       <h5 class="font-weight-bold mt-0">
@@ -96,8 +96,8 @@
         <img class="card-img-64 rounded-circle z-depth-1 d-flex mx-auto mb-3" src="{{asset('img/users_img/'.$rep->img)}}"
           alt="Generic placeholder image">
           @else
-          <!--strtoupper() for Uppercase first letter and mb_substr for arabic name-->
-        <div class="msgw-Avatar msgw-Avatar--sm msgw-Avatar--black">{{strtoupper(mb_substr($rep->name,0,1,'utf-8'))}}</div>
+          <img class="card-img-64 rounded-circle z-depth-1 d-flex mx-auto mb-3" src="https://ui-avatars.com/api/?background=0D8ABC&color=fff&length=1&rounded=true&bold=true&size=45&name={{$rep->name_reply}}"
+            alt="Generic placeholder image">
             @endif
 
         <div class="media-body text-center text-md-left ml-md-3 ml-0" >
@@ -115,7 +115,7 @@
 
   <!-- delete reply by admin-->
   @auth('admin')
-  <a href="{{ url('del_reply'.$rep->reply_id) }}" class="text-default">Delete</a>
+  <a href="{{ url('del_reply'.$rep->reply_id) }}" class="text-danger">Delete</a>
    @endauth
 
 @auth
@@ -151,8 +151,8 @@
  <img class="card-img-64 rounded-circle z-depth-1 d-flex mx-auto mb-3" src="{{asset('img/users_img/'.$re->RepUsers->img)}}"
    alt="Generic placeholder image">
    @else
-   <!--strtoupper() for Uppercase first letter and mb_substr for arabic name-->
- <div class="msgw-Avatar msgw-Avatar--sm msgw-Avatar--black">{{strtoupper(mb_substr($re->RepUsers->name,0,1,'utf-8'))}}</div>
+   <img class="card-img-64 rounded-circle z-depth-1 d-flex mx-auto mb-3" src="https://ui-avatars.com/api/?background=0D8ABC&color=fff&length=1&rounded=true&bold=true&size=45&name={{$re->name_rep}}"
+     alt="Generic placeholder image">
      @endif
  <div class="media-body text-center text-md-left ml-md-3 ml-0" >
    <h5 class="font-weight-bold mt-0">
@@ -304,8 +304,8 @@ This method is safer (in comment in indexcontroller)-->
      <img class="card-img-100 z-depth-1 rounded-circle" src="{{asset('img/users_img/'.Auth::user()->img)}}"
        alt="avatar">
     @else
-    <!--strtoupper() for Uppercase first letter and mb_substr for arabic name-->
-  <div class="msgw-Avatar msgw-Avatar--sm msgw-Avatar--black ">{{strtoupper(mb_substr(Auth::user()->name,0,1,'utf-8'))}}</div>
+    <img class="card-img-100 z-depth-1 rounded-circle" src="{{Auth::user()->img}}"
+      alt="avatar">
     @endif
    </div>
    <div class="md-form w-100">

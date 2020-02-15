@@ -10,7 +10,7 @@
             <div class="p-2"><img src="{{asset('indexfolder/images/'.$data->img)}}" alt="posts" width="50" class="rounded-circle"></div>
             <div class="comment-text w-100">
                 <h6 class="font-medium">{{$data->header}}</h6>
-                <span class="m-b-15 d-block">{{$data->p1}} </span>
+                <span class="m-b-15 d-block">{!!$data->p1!!} </span>
                 <div class="comment-footer">
                     <span class="text-muted float-right">{{$data->created_at->format('M d, Y')}}</span>
                     <a href="{{ url('admin/edit  '.$data->header) }}" class="btn btn-cyan btn-sm">Edit</a>
@@ -19,8 +19,8 @@
                 </div>
             </div>
         </div>
-          @endforeach
-          @endif
-      
+        @endforeach
+        @endif
+
     </div>
 </div>
