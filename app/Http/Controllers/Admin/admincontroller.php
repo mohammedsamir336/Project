@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Password;
 use Illuminate\Hashing\BcryptHasher;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Validation\ValidationException;
+use Illuminate\Support\Str;
 use Carbon\Carbon;
 use App\Admin;
 use App\profile;
@@ -42,6 +43,7 @@ class admincontroller extends Controller
       ]);
         }
     }
+
 
     /**
      * Show the form for creating a new resource.

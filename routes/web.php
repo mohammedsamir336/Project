@@ -118,10 +118,13 @@ Route::group(['middleware' => 'language'], function () {
         return back();
     });
 });
+
 // notify for new message
-Route::get('/notifyMessage', 'Admin\Contacts_MessageController@notifyMessage');
+Route::get('/notifyMessage', 'ajaxcontroller@notifyMessage');
 // get new message by ajax in admin footer
-Route::post('getNewMessage', 'Admin\Contacts_MessageController@getNewMessage');
+Route::post('/getNewMessage', 'ajaxcontroller@getNewMessage');
+//ajaxGetNews
+Route::post('/ajaxGetNews', 'ajaxcontroller@ajaxGetNews');
 
  /*Route::namespace('admin')->prefix('admin')->name('admin.')->group(function ()
  {

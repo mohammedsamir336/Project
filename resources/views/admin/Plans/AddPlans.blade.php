@@ -93,7 +93,7 @@
 
 <script>
   $(document).ready(function () {
-
+  var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
       //  var SITEURL = "{{url('/admin/')}}";
         $.ajaxSetup({
           headers: {
@@ -105,8 +105,6 @@
 
           // initialize the calendar
           // -----------------------------------------------------------------
-
-
 
         var calendar = $('#calendar').fullCalendar({
             editable: true,
@@ -147,12 +145,17 @@
 
                     $.ajax({
                         url: "{{ route('admin.fullcalendar_create') }}",
-                        data:  {title:title, start:start ,end:end},
-                        method: "post",
+                        data:  {title:title, start:start ,end:end ,_token: CSRF_TOKEN},
+                        method: "POST",
                         success: function (data) {
-                            displayMessage("Added Successfully");
+                          //console.log(data);
+                            //displayMessage("Added Successfully");
+
+                            //reload after create
+                            location.reload();
                             //$('$calendar-events').append(Events);
                             //alert('asdas');
+
                         }
                     });
                     calendar.fullCalendar('renderEvent',
@@ -161,11 +164,14 @@
                                 start: start,
                                 end: end,
                                 allDay: allDay
-                            },
-                    true
+                            },true
+
                             );
+
                 }
+
                 calendar.fullCalendar('unselect');
+
             },
 
           eventDrop: function (event, delta) {
@@ -176,9 +182,13 @@
                             data: {id:event.id ,title:event.title, start:start ,end:end},
                             method: "post",
                             success: function (response) {
-                                displayMessage("Updated Successfully");
+                                //displayMessage("Updated Successfully");
+                                //reload after Updated
+                                  location.reload();
+                                  alert("Updated Successfully");
                             }
                         });
+
                     },
             eventClick: function (Events) {
                 var deleteMsg = confirm("Do you really want to delete?");
@@ -190,10 +200,15 @@
                         success: function (response) {
                             if(parseInt(response) > 0) {
                                 $('#calendar').fullCalendar('removeEvents', Events.id);
-                                displayMessage("Deleted Successfully");
+                                //displayMessage("Deleted Successfully");
+
+                                //reload after Deleted
+                                  location.reload();
+                                  //alert("Deleted Successfully");
                             }
                         }
                     });
+
                 }
             }
 

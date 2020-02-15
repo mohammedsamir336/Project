@@ -266,11 +266,44 @@
 
             });
         }
-        //function load every 2 seconds
+
+
+        //get news in admin dashboard
+        function GetNews() {
+
+            $.ajax({
+                url: "<?php echo e(url('ajaxGetNews')); ?>",
+                method: "POST",
+                data:{ _token: CSRF_TOKEN},
+
+                error: function() {
+                    // will fire when timeout is reached
+                },
+                success: function(data) {
+                    //console.log(data);
+                  $('#news').html(data);
+
+                    //document.getElementById("mm").innerHTML = data;
+                },
+
+            });
+        }
+
+        //for get data quickly
+         setTimeout(function()
+         {
+           load();
+           load_data();
+           GetNews();
+        }, 1000);
+
+        //function load every 25 seconds
         myVar =  setInterval(function () {
         load();
         load_data();
-    }, 2000);
+        GetNews();
+    }, 25000);
+
     });
 
 
