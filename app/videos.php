@@ -11,7 +11,7 @@ class videos extends Model
     use softDeletes;
     use Cachable;//cach package
 
-  
+
     protected $fillable = [
       'title', 'video', 'video_posts_header','video_view_count',
       'type','video_img','author','admins_id','url'
@@ -20,6 +20,16 @@ class videos extends Model
     protected $dates = [
       'delete_at','created_at',
   ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+    protected $hidden = [
+    'admins_id',
+  ];
+
 
     public function videos_admins_id()
     {

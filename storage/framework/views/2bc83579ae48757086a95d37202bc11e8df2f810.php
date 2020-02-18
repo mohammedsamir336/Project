@@ -1,4 +1,4 @@
-@include('layouts.index.home_header')
+<?php echo $__env->make('layouts.index.home_header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <!-- BEGIN SHAREAHOLIC CODE -->
 <link rel="preload" href="https://cdn.shareaholic.net/assets/pub/shareaholic.js" as="script" />
 <meta name="shareaholic:site_id" content="e13b8d7f4ff881210b314b12e8411b93" />
@@ -12,23 +12,24 @@
 
 </style>
 
-<title> {{$header}}</title>
+<title> <?php echo e($header); ?></title>
 <!-- Breadcrumb -->
 <div id="ggg"class="container">
   <div class="headline bg0 flex-wr-sb-c p-rl-20 p-tb-8">
     <div class="f2-s-1 p-r-30 m-tb-6">
-      <a href="{{route('home')}}" class="breadcrumb-item f1-s-3 cl9">
+      <a href="<?php echo e(route('home')); ?>" class="breadcrumb-item f1-s-3 cl9">
         Home
       </a>
 
       <span class="breadcrumb-item f1-s-3 cl9">
-         {{$header}}
+         <?php echo e($header); ?>
+
 
 
       </span>
     </div>
 
-    <form class="" action="{{route('search')}}" method="get">
+    <form class="" action="<?php echo e(route('search')); ?>" method="get">
 
         <div class="pos-relative size-a-2 bo-1-rad-22 of-hidden bocl11 m-tb-6">
           <input class="f1-s-1 cl6 plh9 s-full p-l-25 p-r-45 text-dark" type="text" name="search" placeholder="Search" required>
@@ -48,69 +49,78 @@
         <div class="p-r-10 p-r-0-sr991">
           <!-- Blog Detail -->
           <div class="p-b-70">
-            <a href="{{$posts->cat}} = {{$posts->type}}" class="f1-s-10 cl2 hov-cl10 trans-03 text-uppercase">
-            {{$posts->type}}
+            <a href="<?php echo e($posts->cat); ?> = <?php echo e($posts->type); ?>" class="f1-s-10 cl2 hov-cl10 trans-03 text-uppercase">
+            <?php echo e($posts->type); ?>
+
             </a>
 
          <h6 class="f1-s-10 cl2 hov-cl10 trans-03  mt-3">
-          {{ $posts->created_at->diffForHumans(null,true) }}
+          <?php echo e($posts->created_at->diffForHumans(null,true)); ?>
+
         </h6>
 
             <h3 class="f1-l-3 hov-cl10 cl2 p-b-16 p-t-33 respon2">
-              {{$posts->header}}
+              <?php echo e($posts->header); ?>
+
             </h3>
 
             <div class="flex-wr-s-s p-b-40">
               <span class="f1-s-3 cl8 m-r-15">
                 <a href="#" class="f1-s-2 cl8 hov-cl10 trans-03">
-                  by {{$posts->author}}
+                  by <?php echo e($posts->author); ?>
+
                 </a>
 
                 <span class="m-rl-3">-</span>
 
                 <span class="hov-cl10 ">
-             {{ $posts->created_at->format('M d ,Y') }}
+             <?php echo e($posts->created_at->format('M d ,Y')); ?>
+
                 </span>
 
-      <span class="m-rl-3 hov-cl10"> at {{ $posts->created_at->format('g:ia') }}
+      <span class="m-rl-3 hov-cl10"> at <?php echo e($posts->created_at->format('g:ia')); ?>
+
       </span>
               </span>
 
               <span class="f1-s-3 cl8 m-r-15">
-              {{$posts->view_count}}  <i class="fas fa-eye"></i>
+              <?php echo e($posts->view_count); ?>  <i class="fas fa-eye"></i>
               </span>
 
               <a href="#" class="f1-s-3 cl8 hov-cl10 trans-03 m-r-15">
-                {{$comments}} <i class="fas fa-comment "></i>
+                <?php echo e($comments); ?> <i class="fas fa-comment "></i>
 
               </a>
             </div>
 
             <div class="wrap-pic-max-w p-b-30">
-              <img src="{{asset('indexfolder/images/'.$posts->img)}}" alt="IMG">
+              <img src="<?php echo e(asset('indexfolder/images/'.$posts->img)); ?>" alt="IMG">
             </div>
 
             <div class="f1-s-11 cl6 p-b-25">
-               {!!$posts->p1!!}
+               <?php echo $posts->p1; ?>
+
              </div>
 
 
             <div class="f1-s-11 cl6 p-b-25">
-            {!!$posts->p2!!}
+            <?php echo $posts->p2; ?>
+
             </div>
 
-      @if ($posts->videos_id)
+      <?php if($posts->videos_id): ?>
 
       <h4 class="f1-l-3 hov-cl10 cl2 p-b-16 p-t-33 respon2 text-center">
-        {{$posts->videos_id()->first()->title}}
+        <?php echo e($posts->videos_id()->first()->title); ?>
+
       </h4>
 
 
       <!--  Video -->
         <div class="wrap-pic-w pos-relative">
-        <img class="img-fluid z-depth-1 size-a-51 how1 " src="{{$posts->videos_id()->first()->video_img}}" >
+        <img class="img-fluid z-depth-1 size-a-51 how1 " src="<?php echo e($posts->videos_id()->first()->video_img); ?>" >
           <button class="s-full ab-t-l flex-c-c fs-32 cl0 hov-cl10 trans-03" alt="video"
-              data-id="{{$posts->videos_id()->first()->id}}"  data-toggle="modal" data-target="#modal1" onclick="$('#ggg').toggleClass('LightsOutPage')">
+              data-id="<?php echo e($posts->videos_id()->first()->id); ?>"  data-toggle="modal" data-target="#modal1" onclick="$('#ggg').toggleClass('LightsOutPage')">
       <span class="fab fa-youtube fa-lg text-danger"></span>
           </button>
           </div>
@@ -133,7 +143,8 @@
             <div class="modal-body mb-0 p-0">
 
           <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
-          {!!$posts->videos_id()->first()->video!!}
+          <?php echo $posts->videos_id()->first()->video; ?>
+
           </div>
 
         </div>
@@ -163,11 +174,12 @@
     </div>
 
       </div>
-  @endif
+  <?php endif; ?>
 
 
       <div class="f1-s-11 cl6 p-b-25">
-      {!!$posts->p3!!}
+      <?php echo $posts->p3; ?>
+
       </div>
 
             <!-- Tag -->
@@ -178,11 +190,11 @@
 
               <div class="flex-wr-s-s size-w-0">
                   <!-- Split Tag -->
-                @foreach(explode(',',$posts->tag) as $row)
-                <a href="{{asset('s?search='.$row)}}" class="f1-s-12 cl8 hov-link1 m-r-15">
-                  <u>{{ $row }}</u>
+                <?php $__currentLoopData = explode(',',$posts->tag); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $row): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                <a href="<?php echo e(asset('s?search='.$row)); ?>" class="f1-s-12 cl8 hov-link1 m-r-15">
+                  <u><?php echo e($row); ?></u>
                 </a>
-                @endforeach
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
               </div>
             </div>
@@ -194,12 +206,12 @@
               </span>
 
               <div class="flex-wr-s-s size-w-0">
-                <a href="https://www.facebook.com/sharer/sharer.php?u=http://127.0.0.1:8000/read%20=%20{{$posts->header}}&display=popup" class="dis-block f1-s-13 cl0 bg-facebook borad-3 p-tb-4 p-rl-18 hov-btn1 m-r-3 m-b-3 trans-03">
+                <a href="https://www.facebook.com/sharer/sharer.php?u=http://127.0.0.1:8000/read%20=%20<?php echo e($posts->header); ?>&display=popup" class="dis-block f1-s-13 cl0 bg-facebook borad-3 p-tb-4 p-rl-18 hov-btn1 m-r-3 m-b-3 trans-03">
                   <i class="fab fa-facebook-f m-r-7"></i>
                   Facebook
                 </a>
 
-                <a href="https://twitter.com/intent/tweet?hashtags=awesome,sharing&text=My {{url()->full()}}&via=MyTwitterHandle" class="dis-block f1-s-13 cl0 bg-twitter borad-3 p-tb-4 p-rl-18 hov-btn1 m-r-3 m-b-3 trans-03">
+                <a href="https://twitter.com/intent/tweet?hashtags=awesome,sharing&text=My <?php echo e(url()->full()); ?>&via=MyTwitterHandle" class="dis-block f1-s-13 cl0 bg-twitter borad-3 p-tb-4 p-rl-18 hov-btn1 m-r-3 m-b-3 trans-03">
                   <i class="fab fa-twitter m-r-7"></i>
                   Twitter
                 </a>
@@ -224,7 +236,7 @@
             </div>
           </div>
 
- @include('layouts.index.comments')
+ <?php echo $__env->make('layouts.index.comments', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
         </div>
       </div>
@@ -243,31 +255,31 @@
 
             <ul class="p-t-35">
               <li class="how-bor3 p-rl-4">
-                <a href="{{url('categ = Entertainment')}}" class="dis-block f1-s-10 text-uppercase cl2 hov-cl10 trans-03 p-tb-13">
+                <a href="<?php echo e(url('categ = Entertainment')); ?>" class="dis-block f1-s-10 text-uppercase cl2 hov-cl10 trans-03 p-tb-13">
                 Entertainment
                 </a>
               </li>
 
               <li class="how-bor3 p-rl-4">
-                <a href="{{url('categ = Fashion')}}" class="dis-block f1-s-10 text-uppercase cl2 hov-cl10 trans-03 p-tb-13">
+                <a href="<?php echo e(url('categ = Fashion')); ?>" class="dis-block f1-s-10 text-uppercase cl2 hov-cl10 trans-03 p-tb-13">
               Fashion
                 </a>
               </li>
 
               <li class="how-bor3 p-rl-4">
-                <a href="{{url('categ = Technology')}}" class="dis-block f1-s-10 text-uppercase cl2 hov-cl10 trans-03 p-tb-13">
+                <a href="<?php echo e(url('categ = Technology')); ?>" class="dis-block f1-s-10 text-uppercase cl2 hov-cl10 trans-03 p-tb-13">
                   Technology
                 </a>
               </li>
 
               <li class="how-bor3 p-rl-4">
-                <a href="{{url('categ = Life')}}" class="dis-block f1-s-10 text-uppercase cl2 hov-cl10 trans-03 p-tb-13">
+                <a href="<?php echo e(url('categ = Life')); ?>" class="dis-block f1-s-10 text-uppercase cl2 hov-cl10 trans-03 p-tb-13">
                   Life Style
                 </a>
               </li>
 
               <li class="how-bor3 p-rl-4">
-                <a href="{{url('categ = Travel')}}" class="dis-block f1-s-10 text-uppercase cl2 hov-cl10 trans-03 p-tb-13">
+                <a href="<?php echo e(url('categ = Travel')); ?>" class="dis-block f1-s-10 text-uppercase cl2 hov-cl10 trans-03 p-tb-13">
                   Travel
                 </a>
               </li>
@@ -285,65 +297,65 @@
             <ul class="p-t-32">
 
           <div class="" id="years1">
-                @foreach ($years->take(3) as $y1)
+                <?php $__currentLoopData = $years->take(3); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $y1): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <li class="p-rl-4 p-b-19" >
                      <ul class="collapsible collapsible-accordion">
                        <li><a class="collapsible-header waves-effect arrow-r text-dark f1-s-10 text-uppercase cl2">
-                            {{$y1->year}}</i></a>
+                            <?php echo e($y1->year); ?></i></a>
                          <div class="collapsible-body m-t-7">
-                           @foreach ($Archive as $archive)
-                       @if ($y1->year == $archive->year)
+                           <?php $__currentLoopData = $Archive; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $archive): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                       <?php if($y1->year == $archive->year): ?>
                            <ul>
                              <!-- This because $archive->month 1,2,3 I have to put a zero before it -->
-                             @if ($archive->month <= 9)
-                             <li><a href="s?search={{$archive->year}}-0{{$archive->month}}" class="waves-effect text-default">{{$archive->month_name}}</a>
+                             <?php if($archive->month <= 9): ?>
+                             <li><a href="s?search=<?php echo e($archive->year); ?>-0<?php echo e($archive->month); ?>" class="waves-effect text-default"><?php echo e($archive->month_name); ?></a>
                              </li>
-                             @else
-                             <li><a href="s?search={{$archive->year}}-{{$archive->month}}" class="waves-effect text-default">{{$archive->month_name}}</a>
+                             <?php else: ?>
+                             <li><a href="s?search=<?php echo e($archive->year); ?>-<?php echo e($archive->month); ?>" class="waves-effect text-default"><?php echo e($archive->month_name); ?></a>
                              </li>
                            </ul>
-                           @endif
-                      @endif
-                           @endforeach
+                           <?php endif; ?>
+                      <?php endif; ?>
+                           <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                          </div>
                        </li>
                       </ul>
                      </li>
-               @endforeach
+               <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
              </div>
                <div id="years2" style="display:none;">
-                 @foreach ($years as $y2)
+                 <?php $__currentLoopData = $years; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $y2): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                  <li class="p-rl-4 p-b-19">
                       <ul class="collapsible collapsible-accordion">
                         <li><a class="collapsible-header waves-effect arrow-r text-dark f1-s-10 text-uppercase cl2">
-                             {{$y2->year}}</i></a>
+                             <?php echo e($y2->year); ?></i></a>
 
                           <div class="collapsible-body m-t-7">
-                      @foreach ($Archive as $archive)
-                        @if ($y2->year == $archive->year)
+                      <?php $__currentLoopData = $Archive; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $archive): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+                        <?php if($y2->year == $archive->year): ?>
                             <ul>
-                              @if ($archive->month <= 9)
-                              <li><a href="s?search={{$archive->year}}-0{{$archive->month}}" class="waves-effect text-default">{{$archive->month_name}}</a>
+                              <?php if($archive->month <= 9): ?>
+                              <li><a href="s?search=<?php echo e($archive->year); ?>-0<?php echo e($archive->month); ?>" class="waves-effect text-default"><?php echo e($archive->month_name); ?></a>
                               </li>
-                              @else
-                              <li><a href="s?search={{$archive->year}}-{{$archive->month}}" class="waves-effect text-default">{{$archive->month_name}}</a>
+                              <?php else: ?>
+                              <li><a href="s?search=<?php echo e($archive->year); ?>-<?php echo e($archive->month); ?>" class="waves-effect text-default"><?php echo e($archive->month_name); ?></a>
                               </li>
                             </ul>
-                            @endif
-                        @endif
-                      @endforeach
+                            <?php endif; ?>
+                        <?php endif; ?>
+                      <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                           </div>
                         </li>
                        </ul>
                       </li>
-                @endforeach
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
               </div>
               <!-- check count of posts years to show seemore -->
-          @if ( count($years) > 3)
+          <?php if( count($years) > 3): ?>
    <li><a  onClick="$('#years2').toggle(); $('#years1').toggle();"
      class="collapsible-header waves-effect arrow-r text-default f1-s-10 text-uppercase cl2">
      See More</li></a>
-          @endif
+          <?php endif; ?>
             </ul>
           </div>
 
@@ -356,23 +368,25 @@
             </div>
 
             <ul class="p-t-35">
-              @foreach ($Popular_posts  as $Popular)
+              <?php $__currentLoopData = $Popular_posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $Popular): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
             <li class="flex-wr-sb-s p-b-30">
-              <div class="bg-img1 size-a-55 how1 pos-relative" style="background-image: url({{asset('indexfolder/images/'.$Popular->img)}});">
-                <a href="read = {{$Popular->header}}" class="dis-block how1-child1 trans-03"></a>
+              <div class="bg-img1 size-a-55 how1 pos-relative" style="background-image: url(<?php echo e(asset('indexfolder/images/'.$Popular->img)); ?>);">
+                <a href="read = <?php echo e($Popular->header); ?>" class="dis-block how1-child1 trans-03"></a>
 
                </div>
 
             <div class="size-w-11">
               <h6 class="p-b-4">
-                <a href="read = {{$Popular->header}}" class="f1-s-5 cl3 hov-cl10 trans-03">
-                    {{$Popular->header}}
+                <a href="read = <?php echo e($Popular->header); ?>" class="f1-s-5 cl3 hov-cl10 trans-03">
+                    <?php echo e($Popular->header); ?>
+
                 </a>
               </h6>
 
               <span class="cl8 txt-center p-b-24">
-                <a href="type = {{$Popular->type}}" class="f1-s-6 cl8 hov-cl10 trans-03">
-                  {{$Popular->type}}
+                <a href="type = <?php echo e($Popular->type); ?>" class="f1-s-6 cl8 hov-cl10 trans-03">
+                  <?php echo e($Popular->type); ?>
+
                 </a>
 
                 <span class="f1-s-3 m-rl-3">
@@ -380,15 +394,17 @@
                 </span>
 
                 <span class="f1-s-3">
-                  {{ $Popular->created_at->format('M d') }}
+                  <?php echo e($Popular->created_at->format('M d')); ?>
+
                 </span>
                <span class="f1-s-3 " style="padding: 10px;">  <i class="fas fa-eye"></i>
-                 {{$Popular->view_count}}
+                 <?php echo e($Popular->view_count); ?>
+
                </span>
               </span>
             </div>
             </li>
-            @endforeach
+            <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
             </ul>
           </div>
 
@@ -401,35 +417,35 @@
             </div>
 
             <div class="flex-wr-s-s m-rl--5">
-              <a href="{{url('s?search=Fashion')}}" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
+              <a href="<?php echo e(url('s?search=Fashion')); ?>" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
                 Fashion
               </a>
 
-              <a href="{{url('s?search=Life')}}" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
+              <a href="<?php echo e(url('s?search=Life')); ?>" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
                 Lifestyle
               </a>
 
-              <a href="{{url('s?search=Shoe')}}" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
+              <a href="<?php echo e(url('s?search=Shoe')); ?>" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
                 Shoe
               </a>
 
-              <a href="{{url('s?search=Beachs')}}" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
+              <a href="<?php echo e(url('s?search=Beachs')); ?>" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
                 Beachs
               </a>
 
-              <a href="{{url('?search=Financ')}}" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
+              <a href="<?php echo e(url('?search=Financ')); ?>" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
                 Financ
               </a>
 
-              <a href="{{url('s?search=Entertainment')}}" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
+              <a href="<?php echo e(url('s?search=Entertainment')); ?>" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
                 Entertainment
               </a>
 
-              <a href="{{url('s?search=Music')}}" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
+              <a href="<?php echo e(url('s?search=Music')); ?>" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
                 Music
               </a>
 
-              <a href="{{url('s?search=Culture')}}" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
+              <a href="<?php echo e(url('s?search=Culture')); ?>" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
               Culture
               </a>
             </div>
@@ -441,4 +457,5 @@
 </section>
 
    <script async src="https://static.addtoany.com/menu/page.js"></script>
-@include('layouts.index.home_footer')
+<?php echo $__env->make('layouts.index.home_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
+<?php /**PATH C:\xampp\htdocs\Project\resources\views\readmore.blade.php ENDPATH**/ ?>

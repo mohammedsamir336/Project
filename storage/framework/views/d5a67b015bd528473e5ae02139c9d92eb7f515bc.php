@@ -5,8 +5,8 @@
             <div class="row">
                 <div class="col-lg-4 p-b-20">
                     <div class="size-h-3 flex-s-c">
-                        <a href="{{url('/')}}l">
-                            <img class="max-s-full" src="{{asset('indexfolder/images/icons/logo-02.png')}}" alt="LOGO">
+                        <a href="<?php echo e(url('/')); ?>l">
+                            <img class="max-s-full" src="<?php echo e(asset('indexfolder/images/icons/logo-02.png')); ?>" alt="LOGO">
                         </a>
                     </div>
 
@@ -21,15 +21,15 @@
                         </p>
 
                         <div class="p-t-15">
-                            <a href="{{route('facebook')}}" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
+                            <a href="<?php echo e(route('facebook')); ?>" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
                                 <span class="fab fa-facebook-f"></span>
                             </a>
 
-                            <a href="{{route('github')}}" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
+                            <a href="<?php echo e(route('github')); ?>" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
                                 <span class="fab fa-github"></span>
                             </a>
 
-                            <a href="{{route('google')}}" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
+                            <a href="<?php echo e(route('google')); ?>" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
                                 <span class="fab fa-google-plus-g"></span>
                             </a>
 
@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 <!-- This one for video_nav page-->
-                @foreach ($videos_Nav as $videosnav)
+                <?php $__currentLoopData = $videos_Nav; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $videosnav): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                 <!-- Modal Video 01-->
                 <!-- Grid row -->
                 <div class="row">
@@ -52,7 +52,7 @@
                     <!-- Grid column -->
                     <div class="col-lg-4 col-md-12 mb-4">
                         <!--Modal: Name-->
-                        <div class="modal fade" v-id="{{$videosnav->id}}" id="modalmm{{$videosnav->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal fade" v-id="<?php echo e($videosnav->id); ?>" id="modalmm<?php echo e($videosnav->id); ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                             <div class="modal-dialog modal-lg" role="document">
 
                                 <!--Content-->
@@ -62,7 +62,8 @@
                                     <div class="modal-body mb-0 p-0">
 
                                         <div class="embed-responsive embed-responsive-16by9 z-depth-1-half">
-                                            {!!$videosnav->video!!}
+                                            <?php echo $videosnav->video; ?>
+
                                         </div>
 
                                     </div>
@@ -92,7 +93,7 @@
                     </div>
 
                 </div>
-                @endforeach
+                <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
 
                 <div class="col-sm-6 col-lg-4 p-b-20">
                     <div class="size-h-3 flex-s-c">
@@ -102,25 +103,27 @@
                     </div>
 
                     <ul>
-                        @foreach ($Popular_posts->take(3) as $Popular)
+                        <?php $__currentLoopData = $Popular_posts->take(3); $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $Popular): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
                         <li class="flex-wr-sb-s p-b-20">
-                            <div class="bg-img1 size-a-19 how1 pos-relative" style="background-image: url({{asset('indexfolder/images/'.$Popular->img)}});">
-                                <a href="read = {{$Popular->header}}" class="dis-block how1-child1 trans-03"></a>
+                            <div class="bg-img1 size-a-19 how1 pos-relative" style="background-image: url(<?php echo e(asset('indexfolder/images/'.$Popular->img)); ?>);">
+                                <a href="read = <?php echo e($Popular->header); ?>" class="dis-block how1-child1 trans-03"></a>
                             </div>
 
                             <div class="size-w-5">
                                 <h6 class="p-b-5">
-                                    <a href="read = {{$Popular->header}}" class="f1-s-5 cl11 hov-cl10 trans-03">
-                                        {{Str::words($Popular->header, 4)}}
+                                    <a href="read = <?php echo e($Popular->header); ?>" class="f1-s-5 cl11 hov-cl10 trans-03">
+                                        <?php echo e(Str::words($Popular->header, 4)); ?>
+
                                     </a>
                                 </h6>
 
                                 <span class="f1-s-3 cl6">
-                                    {{ $Popular->created_at->format('M d') }}
+                                    <?php echo e($Popular->created_at->format('M d')); ?>
+
                                 </span>
                             </div>
                         </li>
-                        @endforeach
+                        <?php endforeach; $__env->popLoop(); $loop = $__env->getLastLoop(); ?>
                     </ul>
                 </div>
 
@@ -134,31 +137,31 @@
                     <ul class="m-t--12">
                         <li class="how-bor1 p-rl-5 p-tb-10">
                             <a href="categ = Entertainment" class="f1-s-5 cl11 hov-cl10 trans-03 p-tb-8">
-                                Entertainment ({{$count_Entertainment}})
+                                Entertainment (<?php echo e($count_Entertainment); ?>)
                             </a>
                         </li>
 
                         <li class="how-bor1 p-rl-5 p-tb-10">
                             <a href="categ = Technology" class="f1-s-5 cl11 hov-cl10 trans-03 p-tb-8">
-                                Technology ({{$count_Technology}})
+                                Technology (<?php echo e($count_Technology); ?>)
                             </a>
                         </li>
 
                         <li class="how-bor1 p-rl-5 p-tb-10">
                             <a href="categ = Travel" class="f1-s-5 cl11 hov-cl10 trans-03 p-tb-8">
-                                Travel ({{$count_Travel}})
+                                Travel (<?php echo e($count_Travel); ?>)
                             </a>
                         </li>
 
                         <li class="how-bor1 p-rl-5 p-tb-10">
                             <a href="categ = Life" class="f1-s-5 cl11 hov-cl10 trans-03 p-tb-8">
-                                Life Style ({{$count_Life}})
+                                Life Style (<?php echo e($count_Life); ?>)
                             </a>
                         </li>
 
                         <li class="how-bor1 p-rl-5 p-tb-10">
                             <a href="categ = Business" class="f1-s-5 cl11 hov-cl10 trans-03 p-tb-8">
-                                Business ({{$count_Business}})
+                                Business (<?php echo e($count_Business); ?>)
                             </a>
                         </li>
                     </ul>
@@ -170,11 +173,12 @@
     <div class="bg11">
         <div class="container size-h-4 flex-c-c p-tb-15">
             <span class="f1-s-1 cl0 txt-center">
-                Copyright © {{now()->format('Y')}}
+                Copyright © <?php echo e(now()->format('Y')); ?>
 
-                <a href="{{route('contact')}}" class="f1-s-1 cl10 hov-link1">
+
+                <a href="<?php echo e(route('contact')); ?>" class="f1-s-1 cl10 hov-link1">
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                    Copyright 2019 - {{now()->format('Y')}} All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib&mm336</a>
+                    Copyright 2019 - <?php echo e(now()->format('Y')); ?> All rights reserved | This template is made with <i class="fa fa-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib&mm336</a>
                     <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
             </span>
         </div>
@@ -184,51 +188,52 @@
 <!-- Back to top -->
 <div class="btn-back-to-top" id="myBtn">
     <span class="symbol-btn-back-to-top">
-        <img src="{{asset('img/top.png')}}" alt="">
+        <img src="<?php echo e(asset('img/top.png')); ?>" alt="">
     </span>
 </div>
 
 
 
 
-<script src="{{ asset('js/share.js') }}"></script>
+<script src="<?php echo e(asset('js/share.js')); ?>"></script>
 <!-- googel translate-->
 <script type="text/javascript" src="http://cdn.howcode.org/content/static/javascript/jquery.min.js"></script>
 <script src="http://cdn.howcode.org/content/static/javascript/jquery.cookie.js"></script>
-<script type="text/javascript" src="{{asset('//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit')}}"></script>
+<script type="text/javascript" src="<?php echo e(asset('//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit')); ?>"></script>
 <!--===============================================================================================-->
-<script src="{{ asset('indexfolder/vendor/jquery/jquery-3.2.1.min.js') }}"></script>
+<script src="<?php echo e(asset('indexfolder/vendor/jquery/jquery-3.2.1.min.js')); ?>"></script>
 <!--===============================================================================================-->
-<script src="{{ asset('indexfolder/vendor/animsition/js/animsition.min.js') }}"></script>
+<script src="<?php echo e(asset('indexfolder/vendor/animsition/js/animsition.min.js')); ?>"></script>
 <!--===============================================================================================-->
-<script src="{{ asset('indexfolder/vendor/bootstrap/js/popper.js') }}"></script>
+<script src="<?php echo e(asset('indexfolder/vendor/bootstrap/js/popper.js')); ?>"></script>
 
-<script src="{{ asset('indexfolder/vendor/bootstrap/js/bootstrap.min.js') }}"></script>
+<script src="<?php echo e(asset('indexfolder/vendor/bootstrap/js/bootstrap.min.js')); ?>"></script>
 <!-- MDB core JavaScript -->
-<script type="text/javascript" src="{{ asset('js/mdb.min.js') }}"></script>
+<script type="text/javascript" src="<?php echo e(asset('js/mdb.min.js')); ?>"></script>
 <!--===============================================================================================-->
-<script src="{{ asset('indexfolder/js/main.js') }}"></script>
+<script src="<?php echo e(asset('indexfolder/js/main.js')); ?>"></script>
 <!-- time function JavaScript -->
-<script src="{{ asset('indexfolder/js/moment.js') }}"></script>
+<script src="<?php echo e(asset('indexfolder/js/moment.js')); ?>"></script>
 
-<script src="{{ asset('indexfolder/js/MyTest.js') }}"></script>
+<script src="<?php echo e(asset('indexfolder/js/MyTest.js')); ?>"></script>
 
 <script src="https://www.youtube.com/iframe_api"></script>
 <!-- all my js code-->
-<script src="{{ asset('indexfolder/js/MyTest.js') }}"></script>
+<script src="<?php echo e(asset('indexfolder/js/MyTest.js')); ?>"></script>
 
 <!-- change lang of allpage depend on locale colum in user table-->
-@if(App::getLocale() == 'ar')
+<?php if(App::getLocale() == 'ar'): ?>
 <script type="text/javascript">
     document.cookie = "googtrans=/en/ar; path=/";
 
 </script>
-@else
+<?php else: ?>
 <script type="text/javascript">
     document.cookie = "googtrans=/en/en; path=/";
 
 </script>
-@endif
+<?php endif; ?>
 </body>
 
 </html>
+<?php /**PATH C:\xampp\htdocs\Project\resources\views\layouts\index\home_footer.blade.php ENDPATH**/ ?>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-@include('layouts.index.home_header')
+<?php echo $__env->make('layouts.index.home_header', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <style media="screen">
 .content-media--video {
    background-color: #ddd;
@@ -27,12 +27,12 @@
   width: 280px;
   height: 158px;
 }
-@media screen and (min-width: 1120px) {
+@media  screen and (min-width: 1120px) {
    #featured-video.is-sticky {
       transform: translateX(-80%);
    }
 }
-@media screen and (min-width: 1300px) {
+@media  screen and (min-width: 1300px) {
    #featured-video.is-sticky {
       transform: translateX(-115%);
    }
@@ -71,7 +71,7 @@
           </div>
         </div>
       </div>
-    @include('layouts.index.home_footer')
+    <?php echo $__env->make('layouts.index.home_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <script type="text/javascript">
 $(document).ready(function(){
   var $window = $( window ); // 1. Window Object.
@@ -91,8 +91,8 @@ player = new YT.Player( "featured-video", {
 /**
  * Run when the Youtube video state (play, pause, etc.) is changed.
  *
- * @param {Object} event The Youtube Object Event.
- * @return {Void}
+ * @param  {Object} event The Youtube Object Event.
+ * @return  {Void}
  */
 function onPlayerStateChange( event ) {
 
@@ -150,7 +150,7 @@ $window
 function googleTranslateElementInit() {
   new google.translate.TranslateElement({pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
 }
-</script><script type="text/javascript" src="{{asset('translate.google.com/translate_a/element.js?cb=googleTranslateElementInit')}}"></script>
+</script><script type="text/javascript" src="<?php echo e(asset('translate.google.com/translate_a/element.js?cb=googleTranslateElementInit')); ?>"></script>
 	This is a test website.
 	</body>
 </html>-->
@@ -224,7 +224,7 @@ function googleTranslateElementInit() {
 </style>
 
 <div class="msgw-Avatar msgw-Avatar--sm msgw-Avatar--black">Y</div>
-<img src="{{auth()->user()->img ?? ''}}" alt="">
+<img src="<?php echo e(auth()->user()->img ?? ''); ?>" alt="">
 <ui-avatar name="م"></ui-avatar>
 <script src='https://unpkg.com/ui-avatar@0.0.3/dist/uiavatar.js'></script>
 <script src='node_modules/ui-avatar/dist/ui-avatar.js'></script>
@@ -246,7 +246,7 @@ function googleTranslateElementInit() {
     poster="MY_VIDEO_POSTER.jpg"
     data-setup="{}"
   >
-    <source  src="{{asset('media/gt.mp4')}}" type="video/mp4" />
+    <source  src="<?php echo e(asset('media/gt.mp4')); ?>" type="video/mp4" />
 
     <p class="vjs-no-js">
       To view this video please enable JavaScript, and consider upgrading to a
@@ -310,3 +310,4 @@ myPlayer.on('timeupdate', function () {
     }
 </script>
 </body>
+<?php /**PATH C:\xampp\htdocs\Project\resources\views\test.blade.php ENDPATH**/ ?>

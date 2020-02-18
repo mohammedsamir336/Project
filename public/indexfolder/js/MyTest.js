@@ -1,15 +1,12 @@
-
-
 //password show/hidden
 $('.toggle-password').on('click', function() {
-  $(this).toggleClass('fa-eye fa-eye-slash');
-  let input = $($(this).attr('toggle'));
-  if (input.attr('type') == 'password') {
-    input.attr('type', 'text');
-  }
-  else {
-    input.attr('type', 'password');
-  }
+    $(this).toggleClass('fa-eye fa-eye-slash');
+    let input = $($(this).attr('toggle'));
+    if (input.attr('type') == 'password') {
+        input.attr('type', 'text');
+    } else {
+        input.attr('type', 'password');
+    }
 });
 
 //for see replies
@@ -36,50 +33,52 @@ $('.toggle-password').on('click', function() {
  //$('.dd').append(m);
  $(m).toggle();
  alert(see);*/
- /*$('.reply').html('<b>Loading...</b>')
+/*$('.reply').html('<b>Loading...</b>')
 });*/
 
-/*videos close*/
-$('#modal1').on('hidden.bs.modal', function (e) {
+/*videos close readmore*/
+$('#modal1').on('hidden.bs.modal', function(e) {
 
-  $('#modal1 iframe').attr("src", $("#modal1 iframe").attr("src"));
+    $('#modal1 iframe').attr("src", $("#modal1 iframe").attr("src"));
 });
-
 
 /*to Close video on nav bar videos this div here in footer*/
-$('div[v-id]').on('hidden.bs.modal', function (e) {
-  var id = $(this).attr('v-id');
-  $('div[v-id] iframe').attr("src", $("div[v-id] iframe").attr("src"));
+$('div[v-id]').on('hidden.bs.modal', function(e) {
+    var videos = $(e.delegateTarget).find('iframe'); //get iframe from div
+      id = $(this).attr('v-id');
+    $(videos).attr('src', $(videos).attr('src'));
+
 });
+
 
 
 /*count videos viewer*/
-$(document).on('click', 'button[data-id]', function (e) {
+$(document).on('click', 'button[data-id]', function(e) {
 
-  var id = $(this).attr('data-id');
+    var id = $(this).attr('data-id');
 
     load_data(id);
 
-    function load_data(id )
-    {
-       $.ajax({
-        url:"{{ route('video') }}",
-        method:"GET",
-        data:{id:id},
-      success:function(data)
-      {
+    function load_data(id) {
+        $.ajax({
+            url: "video",
+            method: "GET",
+            data: {
+                id: id
+            },
+            success: function(data) {
 
-      }
-     })
+            }
+        })
     }
 });
 
 /* time clock in nav bar*/
 function showTime() {
-  // js file in indexfolder/js moment.js
-   document.getElementById('date').innerHTML = moment().format('h:mm:ss ');
- }
- /*refresh time every a second*/
+    // js file in indexfolder/js moment.js
+    document.getElementById('date').innerHTML = moment().format('h:mm:ss ');
+}
+/*refresh time every a second*/
 setInterval(showTime, 1000);
 
 
@@ -92,7 +91,7 @@ setInterval(showTime, 1000);
 
 
 
-  /* googel translate*/
+/* googel translate*/
 
 /* get cookie of google translate
   function getCookie() {
@@ -111,22 +110,21 @@ setInterval(showTime, 1000);
   return '';
 } var g = getCookie('googtrans'); */
 
-  /* lang*/
-$('#ar').on('click',function () {
-document.cookie = "googtrans=/en/ar; path=/";
- location.reload();
-//$.cookie('googtrans', '/en/ar');
+/* lang*/
+$('#ar').on('click', function() {
+    document.cookie = "googtrans=/en/ar; path=/";
+    location.reload();
+    //$.cookie('googtrans', '/en/ar');
 });
-$('#en').on('click',function () {
-document.cookie = "googtrans=/en/en;path=/";
-location.reload();
+$('#en').on('click', function() {
+    document.cookie = "googtrans=/en/en;path=/";
+    location.reload();
 });
 
-  function googleTranslateElementInit() {
-    new google.translate.TranslateElement(
-      {
-    pageLanguage: 'en',
-    layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+function googleTranslateElementInit() {
+    new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        layout: google.translate.TranslateElement.InlineLayout.SIMPLE
 
-          }, 'google_translate_element');
-      }
+    }, 'google_translate_element');
+}

@@ -38,7 +38,10 @@ app()->singleton('TestTon', function () {
       Route::pattern('id', '[0-9]+');
       //Route::pattern('name','[a-z]+');
       Route::view('/', 'welcome')->name('welcome');
-
+        Route::get('test', function () {
+            $viedos = \App\videos::orderBy('id', 'asc')->first();
+            return view('test', ['videos' => $viedos]);
+        });
       /*Route::get('test', function () {
           $replies = rep::orderBy('rep_id', 'asc')
                             ->join('comments', 'comments.id', '=', 'rep_comments_id')

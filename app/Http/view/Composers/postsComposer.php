@@ -47,6 +47,10 @@ class postsComposer
 
      'videos_cat'          =>  videos::orderBy('id', 'desc')->paginate(8),
 
+     'videos_Nav'          =>  videos::orderBy('id', 'desc')
+                                       ->limit(4)
+                                       ->get(),
+
      'vid_cat'             =>  videos::orderBy('id', 'desc')->get(),
 
      'video_count'         =>  videos::count(),
