@@ -1,5 +1,5 @@
 <li class="mega-menu-item">
-  <a href="videos">Videos</a>
+  <a href="videos"><nobr>Videos</nobr></a>
 
   <div class="sub-mega-menu">
     <div class="nav flex-column nav-pills" role="tablist">

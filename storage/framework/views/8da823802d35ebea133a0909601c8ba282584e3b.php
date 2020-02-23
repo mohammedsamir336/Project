@@ -1,5 +1,5 @@
 <li class="mega-menu-item">
-  <a href="categ = Life">LifeStyle</a>
+  <a href="categ = Life"><nobr>LifeStyle</nobr></a>
 
   <div class="sub-mega-menu">
     <div class="nav flex-column nav-pills" role="tablist">

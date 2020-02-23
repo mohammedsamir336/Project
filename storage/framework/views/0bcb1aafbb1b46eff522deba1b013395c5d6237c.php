@@ -1,5 +1,5 @@
 <li class="mega-menu-item">
-  <a href="<?php echo e(url('categ = Business')); ?>">Business</a>
+  <a href="<?php echo e(url('categ = Business')); ?>"><nobr>Business</nobr></a>
 
   <div class="sub-mega-menu">
     <div class="nav flex-column nav-pills" role="tablist">

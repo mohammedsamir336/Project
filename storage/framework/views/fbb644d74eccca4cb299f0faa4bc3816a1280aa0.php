@@ -19,8 +19,8 @@
 				</span>
 
 				<span class="dis-inline-block cl6 slide100-txt pos-relative size-w-0" data-in="fadeInDown" data-out="fadeOutDown">
-      <?php $__currentLoopData = $last_posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $Popular): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
-	       <a href="read = <?php echo e($Popular->header); ?>" class="dis-inline-block slide100-txt-item animated visible-false " id="Trending">
+      <?php $__currentLoopData = $Trending_posts; $__env->addLoop($__currentLoopData); foreach($__currentLoopData as $Popular): $__env->incrementLoopIndices(); $loop = $__env->getLastLoop(); ?>
+	       <a href="read = <?php echo e($Popular->header); ?>" class="dis-inline-block slide100-txt-item animated visible-false" id="Trending">
 	      		<?php echo e($Popular->header); ?>
 
 	      	</a>

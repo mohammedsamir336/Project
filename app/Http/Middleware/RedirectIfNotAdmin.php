@@ -23,12 +23,13 @@ class RedirectIfNotAdmin
         if (Auth::guard($guard)->check()) {
             return $next($request);
         }
-
+        
         $redirectToRoute = $request->expectsJson() ? '' : 'admin/login';
 
         throw new AuthenticationException(
-            'Unauthenticated.', [$guard], $redirectToRoute
+            'Unauthenticated.',
+            [$guard],
+            $redirectToRoute
         );
     }
-
 }

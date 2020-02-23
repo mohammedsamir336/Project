@@ -6,9 +6,9 @@
 
   <ul class="main-menu justify-content-center">
     <li class="main-menu-active">
-      <a href="<?php echo e(route('home')); ?>">Home</a>
+      <a href="<?php echo e(route('home')); ?>"><nobr>Home</nobr></a>
       <ul class="sub-menu">
-       <li><a href="<?php echo e(route('welcome')); ?>">Welcome</a></li>
+       <li><a href="<?php echo e(route('welcome')); ?>"><nobr>Welcome</nobr></a></li>
       </ul>
     </li>
 
@@ -23,7 +23,7 @@
         <?php echo $__env->make('layouts.index.video_nav', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 
   <li>
-    <a >Features</a>
+    <a><nobr>Features</nobr></a>
     <ul class="sub-menu">
       <li><a href="<?php echo e(url('Technology = Mobile')); ?>">Mobile</a></li>
       <li><a href="<?php echo e(url('Business = Finance')); ?>">Finance</a></li>
@@ -43,7 +43,7 @@
 
   <?php if(auth()->guard()->check()): ?>
   <li >
-    <a class="hov-cl10"><?php echo e($user->email); ?></a>
+    <a class="hov-cl10"><nobr><?php echo e($user->email); ?></nobr></a>
     <ul class="sub-menu">
       <li><a href="p  <?php echo e($user->email); ?>"><i class="fa fa-user"></i> My Profile</a></li>
       <li><a href="<?php echo e(route('user_comments')); ?>"><i class="fas fa-comments"></i> My Comments</a></li>

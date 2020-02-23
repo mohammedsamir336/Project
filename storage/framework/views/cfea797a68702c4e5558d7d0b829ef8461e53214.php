@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="csrf-token" content="<?php echo e(csrf_token()); ?>">
-<title> <?php echo e(config('app.name')); ?>-verify </title>
+  <title> <?php echo e(config('app.name')); ?>-verify </title>
 	<link rel="icon" href="<?php echo e(asset('img/m.png')); ?>" type="image/icon type">
 
 
@@ -173,7 +173,7 @@ animation:move-clouds-back 200s linear infinite;
                 <a class="nav-link js-scroll-trigger text-default" href="<?php echo e(route('admin.logout')); ?>"
                    onclick="event.preventDefault();
                                  document.getElementById('logout-form').submit();">
-                    <?php echo e(__(' Logout and Go Page Home')); ?>
+                    <?php echo e(__('Logout and Go Page Home')); ?>
 
                 </a>
 

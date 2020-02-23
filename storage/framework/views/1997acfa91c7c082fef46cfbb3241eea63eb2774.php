@@ -205,9 +205,9 @@ background
 
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="<?php echo e(language()->back('ar')); ?>"><img src="<?php echo e(asset('img\egypt-flag-icon-16.png')); ?>" alt=""> <span> العربية</span> </a>
+                <a class="dropdown-item" href="<?php echo e(language()->back('ar')); ?>"><img src="<?php echo e(asset('img\egypt-flag-icon-16.png')); ?>" alt=""> <span class="text-dark"> العربية</span> </a>
                 <div role="separator" class="dropdown-divider"></div>
-                <a class="dropdown-item" href="<?php echo e(language()->back('en')); ?>"><img src="<?php echo e(asset('img\united-states-of-america-flag-icon-16.png')); ?>" alt=""> <span> English</span> </a>
+                <a class="dropdown-item" href="<?php echo e(language()->back('en')); ?>"><img src="<?php echo e(asset('img\united-states-of-america-flag-icon-16.png')); ?>" alt=""> <span class="text-dark"> English</span> </a>
 
             </div>
         </li>
@@ -230,7 +230,8 @@ background
                 </h5>
 
 
-                  <!-- if internet Connection has faild  in Illuminate\Auth\MustVerifyEmail sendEmailVerificationNotification()-->
+            <!-- if internet Connection has faild  in Illuminate\Auth\MustVerifyEmail sendEmailVerificationNotification()-->
+
                 <?php $__errorArgs = ['Connection'];
 $__bag = $errors->getBag($__errorArgs[1] ?? 'default');
 if ($__bag->has($__errorArgs[0])) :

@@ -1,5 +1,5 @@
 <li class="mega-menu-item">
-  <a href="categ = Entertainment">Entertainment</a>
+  <a href="categ = Entertainment"><nobr>Entertainment</nobr></a>
 
   <div class="sub-mega-menu">
     <div class="nav flex-column nav-pills" role="tablist">

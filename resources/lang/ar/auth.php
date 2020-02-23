@@ -51,7 +51,7 @@ return array(
   'If you did not create an account, no further action is required.'=> 'إذا لم تقم بإنشاء حساب ، فلا يلزم اتخاذ أي إجراء آخر',
   'Verify Email Address'=> 'تأكيد البريد الالكتروني',
   'Please click the button below to verify your email address.'=> 'يرجى النقر على الزر أدناه للتحقق من عنوان بريدك الإلكتروني.',
-
+  'Admin Verify Email Address'=> 'الذهاب إلي صفحة التحكم',
 
 
 

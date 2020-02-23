@@ -8,6 +8,9 @@ use Illuminate\Routing\Controller;
 use Illuminate\Auth\Events\Verified;
 use Illuminate\Foundation\Auth\VerifiesEmails;
 use Illuminate\Auth\Access\AuthorizationException;
+use App\Admin;
+use Carbon\Carbon;
+use Session;
 
 class VerificationController extends Controller
 {
@@ -51,6 +54,12 @@ class VerificationController extends Controller
      */
     public function show(Request $request)
     {
+        /* Session for To ensure that
+        the message is not repeated when Presses resend email*/
+        if (!Session('admin'.$request->user('admin')->id, 1)) {
+            //resend mail
+            $request->user('admin')->sendEmailVerificationNotification();
+        }
         return $request->user('admin')->hasVerifiedEmail()
             ? redirect($this->redirectPath())
             : view('admin.auth.verify');
@@ -98,7 +107,8 @@ class VerificationController extends Controller
 
         $request->user('admin')->sendEmailVerificationNotification();
 
+        Session('admin'.$request->user('admin')->id, 1);// Session for To ensure that the message is not repeated
+
         return back()->with('resent', true);
     }
-
 }

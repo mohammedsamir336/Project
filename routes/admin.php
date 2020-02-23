@@ -2,6 +2,9 @@
 //  any new routes files  most be put in  app.Providers.RouteServiceProvider in map function
 Route::pattern('id', '[0-9]+');
 Route::group(['namespace' => 'Admin'], function () {
+    //Route::get('email/verify/{id}/{hash}', 'Auth\VerificationController@verify')->name('admin.verification.verify');
+
+
     Route::get('/', 'HomeController@index')->middleware('admin.verified')->name('admin.dashboard');
     // go to news in  admin dashboard
     Route::get('admin#N', 'HomeController@index');
@@ -20,8 +23,13 @@ Route::group(['namespace' => 'Admin'], function () {
     // Verify
     Route::post('email/resend', 'Auth\VerificationController@resend')->name('admin.verification.resend');
     Route::get('email/verify', 'Auth\VerificationController@show')->name('admin.verification.notice');
-    Route::get('email/verify/{id}/{hash}', 'Auth\VerificationController@verify')->name('admin.verification.verify');
-
+    Route::get('email/verify/{id}/{hash}', function (Illuminate\Http\Request $request, $id) {
+        //update email_verified_at in admin table for login to home page
+        \App\Admin::where('id', $id)->update(['email_verified_at' => now()]);
+        return  redirect('admin');//login again to ensure safety
+        /*->with('verified', true)
+        return App::call('App\Http\Controllers\Admin\Auth\VerificationController@verify');*/
+    })->name('admin.verification.verify');
     //setting
     Route::post('/change_profile', 'adminController@change_profile')->name('admin.change_profile');
 
