@@ -6,9 +6,9 @@
 
   <ul class="main-menu justify-content-center">
     <li class="main-menu-active">
-      <a href="{{route('home')}}">Home</a>
+      <a href="{{route('home')}}"><nobr>Home</nobr></a>
       <ul class="sub-menu">
-       <li><a href="{{route('welcome')}}">Welcome</a></li>
+       <li><a href="{{route('welcome')}}"><nobr>Welcome</nobr></a></li>
       </ul>
     </li>
 
@@ -23,7 +23,7 @@
         @include('layouts.index.video_nav')
 
   <li>
-    <a >Features</a>
+    <a><nobr>Features</nobr></a>
     <ul class="sub-menu">
       <li><a href="{{url('Technology = Mobile')}}">Mobile</a></li>
       <li><a href="{{url('Business = Finance')}}">Finance</a></li>
@@ -43,7 +43,7 @@
 
   @auth
   <li >
-    <a class="hov-cl10">{{$user->email}}</a>
+    <a class="hov-cl10"><nobr>{{$user->email}}</nobr></a>
     <ul class="sub-menu">
       <li><a href="p  {{$user->email}}"><i class="fa fa-user"></i> My Profile</a></li>
       <li><a href="{{route('user_comments')}}"><i class="fas fa-comments"></i> My Comments</a></li>

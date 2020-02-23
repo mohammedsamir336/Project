@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="csrf-token" content="{{ csrf_token() }}">
-<title> {{ config('app.name')}}-verify </title>
+  <title> {{ config('app.name')}}-verify </title>
 	<link rel="icon" href="{{ asset('img/m.png') }}" type="image/icon type">
 
 
@@ -169,7 +169,7 @@ animation:move-clouds-back 200s linear infinite;
                 <a class="nav-link js-scroll-trigger text-default" href="{{ route('admin.logout') }}"
                    onclick="event.preventDefault();
                                  document.getElementById('logout-form').submit();">
-                    {{ __(' Logout and Go Page Home') }}
+                    {{ __('Logout and Go Page Home') }}
                 </a>
 
                 <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">

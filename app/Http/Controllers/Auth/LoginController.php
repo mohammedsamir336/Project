@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Support\Str;
 use Socialite;
 use App\User;
 use Auth;
@@ -72,7 +73,7 @@ class LoginController extends Controller
             $user = new User;
             $user->name = $userSocial->getName();
             $user->email = $userSocial->getEmail();
-            $user->password = bcrypt(1357999);
+            $user->password = bcrypt(str_random(12));
             $user->img = $userSocial->getAvatar();
             $user->save();
         }
@@ -107,7 +108,7 @@ class LoginController extends Controller
             $user = new User;
             $user->name = $userSocial->getName();
             $user->email = $userSocial->getEmail();
-            $user->password = bcrypt(1357999);
+            $user->password = bcrypt(str_random(12));
             $user->img = $userSocial->getAvatar();
             $user->save();
         }
@@ -141,9 +142,13 @@ class LoginController extends Controller
             $user = $finduser;
         } else {
             $user = new User;
-            $user->name = $userSocial->getName();
+            if ($userSocial->getName()) {
+                $user->name = $userSocial->getName();
+            } else {
+                $user->name = $userSocial->getNickname();
+            }
             $user->email = $userSocial->getEmail();
-            $user->password = bcrypt(1357999);
+            $user->password = bcrypt(str_random(12));
             $user->img = $userSocial->getAvatar();
             $user->save();
         }

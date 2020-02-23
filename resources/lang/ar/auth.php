@@ -48,7 +48,9 @@ return array(
   'before Unblock.'=> 'قبل إلغاء الحظر',
   'Your account has been blocked by Administrator you can wait'=> 'الحساب الخاص بك قد تم حظره من قبل المسئول يمكنك أن تنتظر',
   'your internet Connection has faild'=> 'تأكد من اتصالك بشبكة الأنترنت',
-
+  'If you did not create an account, no further action is required.'=> 'إذا لم تقم بإنشاء حساب ، فلا يلزم اتخاذ أي إجراء آخر',
+  'Verify Email Address'=> 'تأكيد البريد الالكتروني',
+  'Please click the button below to verify your email address.'=> 'يرجى النقر على الزر أدناه للتحقق من عنوان بريدك الإلكتروني.',
 
 
 

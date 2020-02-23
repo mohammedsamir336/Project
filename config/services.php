@@ -38,16 +38,16 @@ return [
     ],
 
     'google' => [
-    'client_id' => '1037562265405-fu46usup2vr5orsfaehj6mqeojflre8c.apps.googleusercontent.com',
-    'client_secret' => 'DgnMq3T1O8Q4rtTMAzyEQPL7',
+    'client_id' => '1037562265405-nj8ddl01rbq7m9lgfav96884ucujvf8k.apps.googleusercontent.com',
+    'client_secret' => '9_LHm0ZOFvPHq4-yEubWC_OG',
     'redirect' => 'http://localhost/Project/public/login/google/callback',
 
     ],
 
 
     'github' => [
-    'client_id' => 'c6aa09be7b54d47fa419',
-    'client_secret' => '5afffa6d698e02bbbdc213e81a9a078df9cbfd18',
+    'client_id' => '5f38706db85c1e17bafa',
+    'client_secret' => '4e155e1402e243b7f01a80daed6828e6be71bdf2',
     'redirect' => 'http://localhost/Project/public/login/github/callback',
 
     ],

@@ -19,8 +19,8 @@
 				</span>
 
 				<span class="dis-inline-block cl6 slide100-txt pos-relative size-w-0" data-in="fadeInDown" data-out="fadeOutDown">
-      @foreach ($last_posts  as $Popular)
-	       <a href="read = {{$Popular->header}}" class="dis-inline-block slide100-txt-item animated visible-false " id="Trending">
+      @foreach ($Trending_posts  as $Popular)
+	       <a href="read = {{$Popular->header}}" class="dis-inline-block slide100-txt-item animated visible-false" id="Trending">
 	      		{{$Popular->header}}
 	      	</a>
         @endforeach

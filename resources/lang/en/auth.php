@@ -20,7 +20,7 @@ return [
     'Admin Reset Password'=> 'Admin Reset Password',
     'This password reset link will expire in :count minutes.' => 'This password reset link will expire in :count minutes.',
     'If you did not request a password reset, no further action is required.'=> 'If you did not request a password reset, no further action is required.',
-    'Verify Email Address'=> 'E-posta Adresini doğrulayın',
+    'Verify Email Address'=> 'Verify Email Address',
     'Please click the button below to verify your email address.'=> 'Please click the button below to verify your email address.',
     'Admin Verify Email Address'=> 'Admin Verify Email Address',
     'If you did not create an account, no further action is required.'=> 'If you did not create an account, no further action is required.',

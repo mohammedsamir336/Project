@@ -44,10 +44,10 @@ class VerifyEmail extends Notification
         }
 
         return (new MailMessage)
-            ->subject(Lang::get('Verify Email Address'))
-            ->line(Lang::get('Please click the button below to verify your email address.'))
-            ->action(Lang::get('Verify Email Address'), $verificationUrl)
-            ->line(Lang::get('If you did not create an account, no further action is required.'));
+            ->subject(Lang::get(trans('auth.Verify Email Address')))
+            ->line(Lang::get(trans('auth.Please click the button below to verify your email address.')))
+            ->action(Lang::get(trans('auth.Verify Email Address')), $verificationUrl)
+            ->line(Lang::get(trans('auth.If you did not create an account, no further action is required.')));
     }
 
     /**
@@ -67,7 +67,7 @@ class VerifyEmail extends Notification
             ]
         );
     }
-    
+
     /**
      * Set a callback that should be used when building the notification mail message.
      *

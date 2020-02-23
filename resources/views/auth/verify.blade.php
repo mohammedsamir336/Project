@@ -204,9 +204,9 @@ background
                 {{ trans('auth.langues')}}
             </a>
             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="{{ language()->back('ar') }}"><img src="{{asset('img\egypt-flag-icon-16.png')}}" alt=""> <span> العربية</span> </a>
+                <a class="dropdown-item" href="{{ language()->back('ar') }}"><img src="{{asset('img\egypt-flag-icon-16.png')}}" alt=""> <span class="text-dark"> العربية</span> </a>
                 <div role="separator" class="dropdown-divider"></div>
-                <a class="dropdown-item" href="{{ language()->back('en') }}"><img src="{{asset('img\united-states-of-america-flag-icon-16.png')}}" alt=""> <span> English</span> </a>
+                <a class="dropdown-item" href="{{ language()->back('en') }}"><img src="{{asset('img\united-states-of-america-flag-icon-16.png')}}" alt=""> <span class="text-dark"> English</span> </a>
 
             </div>
         </li>
@@ -227,7 +227,8 @@ background
                 </h5>
 
 
-                  <!-- if internet Connection has faild  in Illuminate\Auth\MustVerifyEmail sendEmailVerificationNotification()-->
+            <!-- if internet Connection has faild  in Illuminate\Auth\MustVerifyEmail sendEmailVerificationNotification()-->
+
                 @error('Connection')
                 <div class="alert alert-danger" role="alert">
                     <span class="alert text-danger" role="alert">

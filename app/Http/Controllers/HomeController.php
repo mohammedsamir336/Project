@@ -55,12 +55,12 @@ class HomeController extends Controller
 
         /*verify phone*/
         if (auth()->check()) {
-            if (!auth()->user()->phone_verified_at) {
+            if (!auth()->user()->phone_verified_at && auth()->user()->phone) {
                 //send code if not users verify phone
                 try {
                     $verification = Nexmo::verify()->start([
-                   'number' => auth()->user()->phone,
-                   'brand' => 'Phone Verification',
+                   'number'  => auth()->user()->phone,
+                   'brand'  => 'Phone Verification',
                ]);
 
                     session(['nexmo_request_id' => $verification->getRequestId()]);
@@ -80,7 +80,9 @@ class HomeController extends Controller
               ->limit(3)
               ->get();
 
-
+        $Trending_posts = posts::orderBy('view_count', 'DESC')
+              ->limit(4)
+              ->get();
         /* count Visitors of each day for month or years dont Rewriting visit_at */
         $Visitors = Visitors::first();
 
@@ -100,6 +102,7 @@ class HomeController extends Controller
         return view($this->view, [
           'last_posts'    => $last_posts,
           'last_oneposts' => $last_oneposts,
+          'Trending_posts' => $Trending_posts,
         ]);
     }
 }
