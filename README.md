@@ -1,5 +1,10 @@
 ## by Mohammed samir -  **[C.V](https://mohammedsamircv.blogspot.com/)**
 
+
+##  Note:- **[Please use xampp Apache localhost for a better experience of the site especially with Socialite login and also make sure of the localhost port if it is 8080 or something else in the url when re-login in Socialite or activate the email when sending a message to him.](https://github.com/mohammedsamir336/Project)**
+
+
+
 <p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
 
 <p align="center">
