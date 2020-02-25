@@ -25,7 +25,8 @@ Route::group(['namespace' => 'Admin'], function () {
     Route::get('email/verify', 'Auth\VerificationController@show')->name('admin.verification.notice');
     Route::get('email/verify/{id}/{hash}', function (Illuminate\Http\Request $request, $id) {
         //update email_verified_at in admin table for login to home page
-        \App\Admin::where('id', $id)->update(['email_verified_at' => now()]);
+        $admin = \App\Admin::where('id', $id)->update(['email_verified_at' => now()]);
+
         return  redirect('admin');//login again to ensure safety
         /*->with('verified', true)
         return App::call('App\Http\Controllers\Admin\Auth\VerificationController@verify');*/
