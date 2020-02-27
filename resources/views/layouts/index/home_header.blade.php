@@ -89,7 +89,7 @@
         }
 
         #username {
-            font-size: 13px;
+            font-size: 11px;
         }
 
         .size-a-33 {
@@ -189,7 +189,7 @@
 
                         @auth
                         <a href="#" class="left-topbar-item" id="username" title=" {{Auth::user()->name}}">
-                            {{Auth::user()->name}}
+                            <nobr>{{Auth::user()->name}}</nobr>
                         </a>
 
                         @else
@@ -293,7 +293,7 @@
                                             <!--Grid row-->
                                             <hr>
                                             <div class="inline-ul text-center d-flex justify-content-center ">
-                                                <a class="p-2 m-2 fa-lg li-ic" href="{{route('facebook')}}"><i class="fab fa-facebook-f text-center white-text" title="facebook"> </i></a>
+                                                <a class="p-2 m-2 fa-lg li-ic" data-toggle="modal" data-target="#modalConfirmDelete" href="#"><i class="fab fa-facebook-f text-center white-text" title="facebook"> </i></a>
                                                 <a class="p-2 m-2 fa-lg tw-ic" href="{{route('github')}}"><i class="fab fa-github white-text" title="github"></i></a>
                                                 <a class="p-2 m-2 fa-lg ins-ic" href="{{route('google')}}"><i class="fab fa-google-plus-g  white-text" title="google"> </i></a>
                                             </div>
@@ -314,11 +314,13 @@
                     <div class="right-topbar">
                         <li class="right-topbar">
 
-                            <a href="{{route('facebook')}}" title="facebook">
+                          <!-- toggle model in home_footer-->
+
+                            <a data-toggle="modal" data-target="#modalConfirmDelete" href="#" title="facebook">
                                 <span class="fab fa-facebook-f"></span>
                             </a>
 
-                            <a href="#" title="twitter">
+                            <a  data-toggle="modal" data-target="#modalConfirmDelete" href="#" title="twitter">
                                 <span class="fab fa-twitter"></span>
                             </a>
 

@@ -56,6 +56,7 @@ return array(
     'Nexmo\\Laravel\\' => array($vendorDir . '/nexmo/laravel/src'),
     'Nexmo\\' => array($vendorDir . '/nexmo/client-core/src'),
     'Monolog\\' => array($vendorDir . '/monolog/monolog/src/Monolog'),
+    'MongoDB\\' => array($vendorDir . '/mongodb/mongodb/src'),
     'League\\OAuth1\\' => array($vendorDir . '/league/oauth1-client/src'),
     'League\\Flysystem\\' => array($vendorDir . '/league/flysystem/src'),
     'League\\CommonMark\\Ext\\Table\\' => array($vendorDir . '/league/commonmark-ext-table/src'),

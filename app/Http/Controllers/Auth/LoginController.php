@@ -64,16 +64,16 @@ class LoginController extends Controller
     public function facebookProviderCallback()
     {
         $userSocial = Socialite::driver('facebook')->user();
-
+        //return dd($userSocial);
         $finduser= User::where('email', $userSocial->email)->first();
-
+        //return $finduser;
         if ($finduser) {
             $user = $finduser;
         } else {
             $user = new User;
             $user->name = $userSocial->getName();
             $user->email = $userSocial->getEmail();
-            $user->password = bcrypt(str_random(12));
+            $user->password = bcrypt(Str::random(12));
             $user->img = $userSocial->getAvatar();
             $user->save();
         }
@@ -108,7 +108,7 @@ class LoginController extends Controller
             $user = new User;
             $user->name = $userSocial->getName();
             $user->email = $userSocial->getEmail();
-            $user->password = bcrypt(str_random(12));
+            $user->password = bcrypt(Str::random(12));
             $user->img = $userSocial->getAvatar();
             $user->save();
         }
@@ -148,7 +148,7 @@ class LoginController extends Controller
                 $user->name = $userSocial->getNickname();
             }
             $user->email = $userSocial->getEmail();
-            $user->password = bcrypt(str_random(12));
+            $user->password = bcrypt(Str::random(12));
             $user->img = $userSocial->getAvatar();
             $user->save();
         }

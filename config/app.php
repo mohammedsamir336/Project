@@ -180,7 +180,7 @@ return [
         App\Providers\RouteServiceProvider::class,
         Nexmo\Laravel\NexmoServiceProvider::class,
         Akaunting\Language\Provider::class,//lang package
-
+        Jenssegers\Mongodb\MongodbServiceProvider::class, //Mongodb
 
     ],
 

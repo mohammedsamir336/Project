@@ -93,6 +93,8 @@
 		</div>
 	</div>
 
+
+
  @include('layouts.index.posts.latest')
 
 @include('layouts.index.home_footer')

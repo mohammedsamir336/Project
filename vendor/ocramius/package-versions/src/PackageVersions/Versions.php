@@ -40,6 +40,7 @@ final class Versions
   'intervention/image' => '2.5.1@abbf18d5ab8367f96b3205ca3c89fb2fa598c69e',
   'jakub-onderka/php-console-color' => 'v0.2@d5deaecff52a0d61ccb613bb3804088da0307191',
   'jakub-onderka/php-console-highlighter' => 'v0.4@9f7a229a69d52506914b4bc61bfdb199d90c5547',
+  'jenssegers/mongodb' => 'v3.6.1@a8918acadb79f4f90d42eaddf0e996054ddd8184',
   'jorenvanhocht/laravel-share' => '3.2.0@c82c43b654a48964a8949195c5f48c9e7cb1ec95',
   'laminas/laminas-diactoros' => '2.2.2@95178c4751d737cdf9ab0a9f70a42754ac860e7b',
   'laminas/laminas-zendframework-bridge' => '1.0.1@0fb9675b84a1666ab45182b6c5b29956921e818d',
@@ -53,6 +54,7 @@ final class Versions
   'league/commonmark-ext-table' => 'v2.1.0@3228888ea69636e855efcf6636ff8e6316933fe7',
   'league/flysystem' => '1.0.63@8132daec326565036bc8e8d1876f77ec183a7bd6',
   'league/oauth1-client' => '1.7.0@fca5f160650cb74d23fc11aa570dd61f86dcf647',
+  'mongodb/mongodb' => '1.6.0@dc43ba25fb593d6a2988e6a535b6f5386eda5b15',
   'monolog/monolog' => '2.0.2@c861fcba2ca29404dc9e617eedd9eff4616986b8',
   'nesbot/carbon' => '2.29.1@e509be5bf2d703390e69e14496d9a1168452b0a2',
   'nexmo/client' => '2.0.0@664082abac14f6ab9ceec9abaf2e00aeb7c17333',
@@ -146,7 +148,7 @@ final class Versions
   'tanmuhittin/laravel-google-translate' => '1.0.3@7b4efd17e509a10fa7e8ae32dd458dd96f97bf27',
   'theseer/tokenizer' => '1.1.3@11336f6f84e16a720dae9d8e6ed5019efa85a0f9',
   'webmozart/assert' => '1.6.0@573381c0a64f155a0d9a23f4b0c797194805b925',
-  'laravel/laravel' => 'dev-master@e4d49f43e0f32f0acb8a6d430d17e5d98f894633',
+  'laravel/laravel' => 'dev-master@bb425f200a0c11a3cd13bfa4f5eb266436715ba4',
 );
 
     private function __construct()

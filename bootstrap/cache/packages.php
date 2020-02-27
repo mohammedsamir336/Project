@@ -67,6 +67,14 @@
       'Image' => 'Intervention\\Image\\Facades\\Image',
     ),
   ),
+  'jenssegers/mongodb' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Jenssegers\\Mongodb\\MongodbServiceProvider',
+      1 => 'Jenssegers\\Mongodb\\MongodbQueueServiceProvider',
+    ),
+  ),
   'jorenvanhocht/laravel-share' => 
   array (
     'providers' => 
