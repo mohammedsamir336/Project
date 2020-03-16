@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-lg-4 p-b-20">
                     <div class="size-h-3 flex-s-c">
-                        <a href="<?php echo e(url('/')); ?>l">
+                        <a href="<?php echo e(url('/')); ?>">
                             <img class="max-s-full" src="<?php echo e(asset('indexfolder/images/icons/logo-02.png')); ?>" alt="LOGO">
                         </a>
                     </div>
@@ -21,8 +21,8 @@
                         </p>
 
                         <div class="p-t-15">
-                            <a href="<?php echo e(route('facebook')); ?>" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
-                                <span class="fab fa-facebook-f"></span>
+                            <a data-toggle="modal" data-target="#modalConfirmDelete" href="#" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
+                                <span class="fab fa-facebook-f" title="facebook"></span>
                             </a>
 
                             <a href="<?php echo e(route('github')); ?>" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">

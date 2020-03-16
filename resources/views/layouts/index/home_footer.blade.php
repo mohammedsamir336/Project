@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="col-lg-4 p-b-20">
                     <div class="size-h-3 flex-s-c">
-                        <a href="{{url('/')}}l">
+                        <a href="{{url('/')}}">
                             <img class="max-s-full" src="{{asset('indexfolder/images/icons/logo-02.png')}}" alt="LOGO">
                         </a>
                     </div>
@@ -21,8 +21,8 @@
                         </p>
 
                         <div class="p-t-15">
-                            <a href="{{route('facebook')}}" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
-                                <span class="fab fa-facebook-f"></span>
+                            <a data-toggle="modal" data-target="#modalConfirmDelete" href="#" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">
+                                <span class="fab fa-facebook-f" title="facebook"></span>
                             </a>
 
                             <a href="{{route('github')}}" class="fs-18 cl11 hov-cl10 trans-03 m-r-8">

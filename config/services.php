@@ -33,14 +33,14 @@ return [
     'facebook' => [
     'client_id' => '189848882244202',
     'client_secret' => '338e396656f20cd8a2e9cbec199dddbd',
-    'redirect' => url('/login/facebook/callback'),
+    'redirect' =>  env('APP_URL').'/login/facebook/callback',
 
     ],
 
     'google' => [
     'client_id' => '1037562265405-nj8ddl01rbq7m9lgfav96884ucujvf8k.apps.googleusercontent.com',
     'client_secret' => '9_LHm0ZOFvPHq4-yEubWC_OG',
-    'redirect' =>   url('/login/google/callback'),
+    'redirect' =>   env('APP_URL').'/login/google/callback',
 
     ],
 
@@ -48,7 +48,7 @@ return [
     'github' => [
     'client_id' => '5f38706db85c1e17bafa',
     'client_secret' => '4e155e1402e243b7f01a80daed6828e6be71bdf2',
-    'redirect' => url('/login/github/callback'),
+    'redirect' =>  env('APP_URL').'/login/github/callback',
 
     ],
 
@@ -56,15 +56,15 @@ return [
     'Twitter' => [
     'client_id' => 'jvVgZoMJFDGF0nuSRFzrE4jO3',
     'client_secret' => 'onPJd84dU1ZrHgsGmWCFBI4iv5octmWDLQooJ1TZix1T34ttjf',
-    'redirect' => url('/login/Twitter/callback'),
+    'redirect' =>  env('APP_URL').'/login/Twitter/callback',
 
     ],
 
     'yahoo' => [
     'client_id' => 'dj0yJmk9TWlnd3JWSXAwRTRMJmQ9WVdrOVRqRm9NRTkxTjJzbWNHbzlNQS0tJnM9Y29uc3VtZXJzZWNyZXQmc3Y9MCZ4PTEz',
     'client_secret' => '0e40274ae9d9c46bdde4e74723a8d55dfce78560',
-    'redirect' => url('/login/yahoo/callback'),
+    'redirect' =>  env('APP_URL').'/login/yahoo/callback',
 
     ],
-
+    //'http://localhost:8080/Project/public/login/yahoo/callback',
 ];
