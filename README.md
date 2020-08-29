@@ -11,6 +11,11 @@ and assign a small and large number to the site with modification to everything.
 This project is written in several different languages, it is possible to find that,
 for example, implementing a specific command has been written in several different languages for the same thing, in order to increase the skills in all languages.**
 
+## Project language:-
+
+** HTML , CSS , JS , JQUERY , AJAX , NATIVE PHP , PHP(LARAVEL) , MDBOOTSTRAP .**
+    
+   
 
 ## instructions on how to set up yourproject locally:
 
