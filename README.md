@@ -35,8 +35,8 @@ for example, implementing a specific command has been written in several differe
 
 ## Important note:-
 
-## the github and google account login can only worked in php artisan serve (http://127.0.0.1:8000)
-
+## 1-The github and google account login can only worked in php artisan serve (http://127.0.0.1:8000)
+## 2-Run XAMPP Apache and MYSQL required .
 
 
 
