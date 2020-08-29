@@ -20,3 +20,63 @@
 #5 C:\\xampp\\htdocs\\mm336\\mm\\public\\index.php(55): Illuminate\\Foundation\\Http\\Kernel->handle(Object(Illuminate\\Http\\Request))
 #6 {main}
 "} 
+[2020-08-29 14:36:21] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php:192)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(118): Illuminate\\Log\\LogManager->resolve(NULL)
+#1 C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(98): Illuminate\\Log\\LogManager->get(NULL)
+#2 C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(547): Illuminate\\Log\\LogManager->driver()
+#3 C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php(121): Illuminate\\Log\\LogManager->error('Argument 2 pass...', Array)
+#4 C:\\xampp\\htdocs\\Project\\app\\Exceptions\\Handler.php(37): Illuminate\\Foundation\\Exceptions\\Handler->report(Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))
+#5 C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(376): App\\Exceptions\\Handler->report(Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))
+#6 C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(141): Illuminate\\Foundation\\Console\\Kernel->reportException(Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))
+#7 C:\\xampp\\htdocs\\Project\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2020-08-29 14:36:21] laravel.ERROR: Argument 2 passed to Illuminate\Routing\UrlGenerator::__construct() must be an instance of Illuminate\Http\Request, null given, called in C:\xampp\htdocs\Project\vendor\laravel\framework\src\Illuminate\Routing\RoutingServiceProvider.php on line 68 {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalThrowableError(code: 0): Argument 2 passed to Illuminate\\Routing\\UrlGenerator::__construct() must be an instance of Illuminate\\Http\\Request, null given, called in C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RoutingServiceProvider.php on line 68 at C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:120)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RoutingServiceProvider.php(68): Illuminate\\Routing\\UrlGenerator->__construct(Object(Illuminate\\Routing\\RouteCollection), NULL, NULL)
+#1 C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(799): Illuminate\\Routing\\RoutingServiceProvider->Illuminate\\Routing\\{closure}(Object(Illuminate\\Foundation\\Application), Array)
+#2 C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(681): Illuminate\\Container\\Container->build(Object(Closure))
+#3 C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(629): Illuminate\\Container\\Container->resolve('url', Array)
+#4 C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(776): Illuminate\\Container\\Container->make('url', Array)
+#5 C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(121): Illuminate\\Foundation\\Application->make('url', Array)
+#6 C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(929): app('Illuminate\\\\Cont...')
+#7 C:\\xampp\\htdocs\\Project\\config\\app.php(55): url()
+#8 C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(72): require('C:\\\\xampp\\\\htdocs...')
+#9 C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles(Object(Illuminate\\Foundation\\Application), Object(Illuminate\\Config\\Repository))
+#10 C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(219): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap(Object(Illuminate\\Foundation\\Application))
+#11 C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(320): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#12 C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(129): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#13 C:\\xampp\\htdocs\\Project\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#14 {main}
+"} 
+[2020-08-29 14:36:52] laravel.EMERGENCY: Unable to create configured logger. Using emergency logger. {"exception":"[object] (InvalidArgumentException(code: 0): Log [] is not defined. at C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php:192)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(118): Illuminate\\Log\\LogManager->resolve(NULL)
+#1 C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(98): Illuminate\\Log\\LogManager->get(NULL)
+#2 C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Log\\LogManager.php(547): Illuminate\\Log\\LogManager->driver()
+#3 C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Exceptions\\Handler.php(121): Illuminate\\Log\\LogManager->error('Argument 2 pass...', Array)
+#4 C:\\xampp\\htdocs\\Project\\app\\Exceptions\\Handler.php(37): Illuminate\\Foundation\\Exceptions\\Handler->report(Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))
+#5 C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(376): App\\Exceptions\\Handler->report(Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))
+#6 C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(141): Illuminate\\Foundation\\Console\\Kernel->reportException(Object(Symfony\\Component\\Debug\\Exception\\FatalThrowableError))
+#7 C:\\xampp\\htdocs\\Project\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#8 {main}
+"} 
+[2020-08-29 14:36:52] laravel.ERROR: Argument 2 passed to Illuminate\Routing\UrlGenerator::__construct() must be an instance of Illuminate\Http\Request, null given, called in C:\xampp\htdocs\Project\vendor\laravel\framework\src\Illuminate\Routing\RoutingServiceProvider.php on line 68 {"exception":"[object] (Symfony\\Component\\Debug\\Exception\\FatalThrowableError(code: 0): Argument 2 passed to Illuminate\\Routing\\UrlGenerator::__construct() must be an instance of Illuminate\\Http\\Request, null given, called in C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RoutingServiceProvider.php on line 68 at C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\UrlGenerator.php:120)
+[stacktrace]
+#0 C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Routing\\RoutingServiceProvider.php(68): Illuminate\\Routing\\UrlGenerator->__construct(Object(Illuminate\\Routing\\RouteCollection), NULL, NULL)
+#1 C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(799): Illuminate\\Routing\\RoutingServiceProvider->Illuminate\\Routing\\{closure}(Object(Illuminate\\Foundation\\Application), Array)
+#2 C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(681): Illuminate\\Container\\Container->build(Object(Closure))
+#3 C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Container\\Container.php(629): Illuminate\\Container\\Container->resolve('url', Array)
+#4 C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(776): Illuminate\\Container\\Container->make('url', Array)
+#5 C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(121): Illuminate\\Foundation\\Application->make('url', Array)
+#6 C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\helpers.php(929): app('Illuminate\\\\Cont...')
+#7 C:\\xampp\\htdocs\\Project\\config\\app.php(55): url()
+#8 C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(72): require('C:\\\\xampp\\\\htdocs...')
+#9 C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Bootstrap\\LoadConfiguration.php(39): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->loadConfigurationFiles(Object(Illuminate\\Foundation\\Application), Object(Illuminate\\Config\\Repository))
+#10 C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Application.php(219): Illuminate\\Foundation\\Bootstrap\\LoadConfiguration->bootstrap(Object(Illuminate\\Foundation\\Application))
+#11 C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(320): Illuminate\\Foundation\\Application->bootstrapWith(Array)
+#12 C:\\xampp\\htdocs\\Project\\vendor\\laravel\\framework\\src\\Illuminate\\Foundation\\Console\\Kernel.php(129): Illuminate\\Foundation\\Console\\Kernel->bootstrap()
+#13 C:\\xampp\\htdocs\\Project\\artisan(37): Illuminate\\Foundation\\Console\\Kernel->handle(Object(Symfony\\Component\\Console\\Input\\ArgvInput), Object(Symfony\\Component\\Console\\Output\\ConsoleOutput))
+#14 {main}
+"} 

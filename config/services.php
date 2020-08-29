@@ -46,8 +46,8 @@ return [
 
 
     'github' => [
-    'client_id' => '5f38706db85c1e17bafa',
-    'client_secret' => '4e155e1402e243b7f01a80daed6828e6be71bdf2',
+    'client_id' => '2229accbadf022af6138',
+    'client_secret' => 'e4eae63c4a874aa02d8b6ef9adf7588acf8735d8',
     'redirect' =>  env('APP_URL').'/login/github/callback',
 
     ],
