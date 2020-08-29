@@ -25,7 +25,7 @@ for example, implementing a specific command has been written in several differe
   
 **2-Create a database locally named (mm) utf8_general_ci**
 
-**3-Import mm.sql file in sql tabels database folder from project folder in the database you are created (mm database).**
+**3-Get mm.sql file in (sql tabels database folder) from current folder and Import it in the database you are created (mm database).**
 
 **4-Run php artisan serve (http://127.0.0.1:8000).**
 
