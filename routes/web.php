@@ -54,7 +54,7 @@ Route::group(['middleware' => 'language'], function () {
     Auth::routes(['verify' => true]);
     Route::get('/home', 'HomeController@index')->name('home');
 
-    ///check email Ajax
+    //check email Ajax
     Route::post('/email_available/check', 'indexcontroller@check')->name('email_available.check');
     //check phone Ajax
     Route::post('/phone_available/check', 'indexcontroller@CheckPhone')->name('phone_available.check');
