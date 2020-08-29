@@ -1,35 +1,36 @@
 ## by Mohammed samir -  **[C.V](https://mohammedsamircv.blogspot.com/)**
 
 
-## About:
+## About Project:
 
-##This project is a test, however, as it is an integrated news site that contains many dynamic articles and news with a set of important news videos,
+**This project is a test, however, as it is an integrated news site that contains many dynamic articles and news with a set of important news videos,
 either within the article or separately; With an integrated dashboard for the administrator, 
 through which he can add articles or videos, remove them or modify them, while knowing everything about the site, 
 such as the number of articles, videos, clients, officials, and the number of visits, 
 and assign a small and large number to the site with modification to everything.
 This project is written in several different languages, it is possible to find that,
-for example, implementing a specific command has been written in several different languages for the same thing, in order to increase the skills in all languages.
+for example, implementing a specific command has been written in several different languages for the same thing, in order to increase the skills in all languages.**
 
 
-##instructions on how to set up yourproject locally:
+## instructions on how to set up yourproject locally:
 
 **1-Download project: **https://github.com/mohammedsamir336/Project/archive/master.zip**
 
   **OR Clone with HTTPS: **https://github.com/mohammedsamir336/Project.git**
   
-**2-Create a database locally named (mm) utf8_general_ci
+**2-Create a database locally named (mm) utf8_general_ci**
 
-**3-Import mm.sql file in sql tabels database folder from project folder in the database you are created (mm).
+**3-Import mm.sql file in sql tabels database folder from project folder in the database you are created (mm).**
 
 **4-Run php artisan serve (http://127.0.0.1:8000).
 
-**5-to visit admin dashboard type in url admin for example: (http://127.0.0.1:8000/admin) it will return you to admin login page.
+**5-to visit admin dashboard type in url admin for example: (http://127.0.0.1:8000/admin) it will return you to admin login page.**
 
-**6-for admin password and email it is in Admin Password.txt in project folder.
+**6-for admin password and email it is in Admin Password.txt in project folder.**
 
-**--Important note**
-##the github and google account login can only worked in php artisan serve (http://127.0.0.1:8000)
+**Important note**
+
+## the github and google account login can only worked in php artisan serve (http://127.0.0.1:8000)
 
 
 
