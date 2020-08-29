@@ -17,7 +17,7 @@ for example, implementing a specific command has been written in several differe
     
    
 
-## instructions on how to set up yourproject locally:
+## instructions on how to set up project locally:
 
 **1-Download project:** **https://github.com/mohammedsamir336/Project/archive/master.zip**
 
