@@ -33,7 +33,7 @@ for example, implementing a specific command has been written in several differe
 
 **6-For admin password and email it is in Admin Password.txt in project folder.**
 
-## Important note
+## Important note:-
 
 ## the github and google account login can only worked in php artisan serve (http://127.0.0.1:8000)
 
