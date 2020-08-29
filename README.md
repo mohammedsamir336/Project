@@ -14,21 +14,21 @@ for example, implementing a specific command has been written in several differe
 
 ## instructions on how to set up yourproject locally:
 
-**1-Download project: **https://github.com/mohammedsamir336/Project/archive/master.zip**
+**1-Download project:** **https://github.com/mohammedsamir336/Project/archive/master.zip**
 
-  **OR Clone with HTTPS: **https://github.com/mohammedsamir336/Project.git**
+  **OR Clone with HTTPS:** **https://github.com/mohammedsamir336/Project.git**
   
 **2-Create a database locally named (mm) utf8_general_ci**
 
-**3-Import mm.sql file in sql tabels database folder from project folder in the database you are created (mm).**
+**3-Import mm.sql file in sql tabels database folder from project folder in the database you are created (mm database).**
 
-**4-Run php artisan serve (http://127.0.0.1:8000).
+**4-Run php artisan serve (http://127.0.0.1:8000).**
 
 **5-to visit admin dashboard type in url admin for example: (http://127.0.0.1:8000/admin) it will return you to admin login page.**
 
 **6-for admin password and email it is in Admin Password.txt in project folder.**
 
-**Important note**
+##Important note
 
 ## the github and google account login can only worked in php artisan serve (http://127.0.0.1:8000)
 
