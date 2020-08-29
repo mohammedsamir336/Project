@@ -13,7 +13,7 @@ for example, implementing a specific command has been written in several differe
 
 ## Project language:-
 
-** HTML , CSS , JS , JQUERY , AJAX , NATIVE PHP , PHP(LARAVEL) , MDBOOTSTRAP .**
+**HTML , CSS , JS , JQUERY , AJAX , NATIVE PHP , PHP(LARAVEL) , MDBOOTSTRAP .**
     
    
 
