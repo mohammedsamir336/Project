@@ -7,7 +7,7 @@
 either within the article or separately; With an integrated dashboard for the administrator, 
 through which he can add articles or videos, remove them or modify them, while knowing everything about the site, 
 such as the number of articles, videos, clients, officials, and the number of visits, 
-and assign a small and large number to the site with modification to everything.
+and control every small and large thing in site with modification to everything.
 This project is written in several different languages, it is possible to find that,
 for example, implementing a specific command has been written in several different languages for the same thing, in order to increase the skills in all languages.**
 
