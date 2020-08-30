@@ -5,6 +5,7 @@ namespace Illuminate\Foundation\Auth;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\profile;
 
 trait RegistersUsers
 {
@@ -34,6 +35,26 @@ trait RegistersUsers
 
         $this->guard()->login($user);
 
+        if (Auth::check()) {
+         //insert into profile to get users profile
+         $profile = [
+        'name'      => request('name'),
+        'email'     => request('email'),
+        'users_id'  => Auth::user()->id,
+         ];
+       }elseif (Auth::guard('admin')->check())
+
+       {
+
+         //insert into profile to get admin profile
+         $profile = [
+         'name'      => request('name'),
+         'email'     => request('email'),
+         'admins_id' => Auth::guard('admin')->user()->id,
+          ];
+       }
+       profile::create($profile);
+
         return $this->registered($request, $user)
                         ?: redirect($this->redirectPath());
     }
@@ -59,4 +80,19 @@ trait RegistersUsers
     {
         //
     }
+
+
+    /**
+     * insert into users profile table the data of users
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  mixed  $user
+     * @return mixed
+     */
+    protected function profileData(Request $request, $user)
+    {
+        //
+    }
+
+
 }
