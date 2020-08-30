@@ -1,6 +1,43 @@
 ## by Mohammed samir -  **[C.V](https://mohammedsamircv.blogspot.com/)**
 
 
+## About Project:
+
+**This project is a test, however, as it is an integrated news site that contains many dynamic articles and news with a set of important news videos,
+either within the article or separately; With an integrated dashboard for the administrator, 
+through which he can add articles or videos, remove them or modify them, while knowing everything about the site, 
+such as the number of articles, videos, clients, officials, and the number of visits, 
+and control every small and large thing in site with modification to everything.
+This project is written in several different languages, it is possible to find that,
+for example, implementing a specific command has been written in several different languages for the same thing, in order to increase the skills in all languages.**
+
+## Project language:-
+
+**HTML , CSS , JS , JQUERY , AJAX , NATIVE PHP , PHP(LARAVEL) , MDBOOTSTRAP .**
+    
+   
+
+## instructions on how to set up project locally:
+
+**1-Download project:** **https://github.com/mohammedsamir336/Project/archive/master.zip**
+
+  **OR Clone with HTTPS:** **https://github.com/mohammedsamir336/Project.git**
+  
+**2-Create a database locally named (mm) utf8_general_ci**
+
+**3-Get mm.sql file in (sql tabels database folder) from current folder and Import it in the database you are created (mm database).**
+
+**4-Run php artisan serve (http://127.0.0.1:8000).**
+
+**5-To visit admin dashboard type in url admin for example: (http://127.0.0.1:8000/admin) it will return you to admin login page.**
+
+**6-For admin password and email it is in Admin Password.txt in project folder.**
+
+## Important note:-
+
+## 1-The github and google account login can only worked in php artisan serve (http://127.0.0.1:8000)
+## 2-Run XAMPP Apache and MYSQL required .
+
 
 
 
