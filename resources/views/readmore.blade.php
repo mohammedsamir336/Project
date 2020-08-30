@@ -441,4 +441,10 @@
 </section>
 
    <script async src="https://static.addtoany.com/menu/page.js"></script>
+   <script type="text/javascript">
+   var h = "{{$header}}";
+   var kk = "read = " + "{{Str::slug("$header")}}";
+   //alert(kk);
+    // window.location.href = kk ;
+   </script>
 @include('layouts.index.home_footer')

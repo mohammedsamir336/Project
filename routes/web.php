@@ -36,7 +36,7 @@ app()->singleton('TestTon', function () {
      });*/
 
       Route::pattern('id', '[0-9]+');
-      //Route::pattern('name','[a-z]+');
+      //Route::pattern('header','[a-z]+');
       Route::view('/', 'welcome')->name('welcome');
         Route::get('test', function () {
             $viedos = \App\videos::orderBy('id', 'asc')->first();

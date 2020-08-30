@@ -104,6 +104,8 @@ trait allposts
             /* rep on rep*/
             $reply = rep::all();
 
+
+
             return view($this->view, [
       'posts'         => $posts ,
       'reply'         => $reply ,

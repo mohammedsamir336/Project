@@ -457,5 +457,11 @@
 </section>
 
    <script async src="https://static.addtoany.com/menu/page.js"></script>
+   <script type="text/javascript">
+   var h = "<?php echo e($header); ?>";
+   var kk = "read = " + "<?php echo e(Str::slug("$header")); ?>";
+   alert(kk);
+    // window.location.href = kk ;
+   </script>
 <?php echo $__env->make('layouts.index.home_footer', \Illuminate\Support\Arr::except(get_defined_vars(), ['__data', '__path']))->render(); ?>
 <?php /**PATH C:\xampp\htdocs\Project\resources\views/readmore.blade.php ENDPATH**/ ?>
