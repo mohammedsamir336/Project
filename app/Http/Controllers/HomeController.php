@@ -84,18 +84,26 @@ class HomeController extends Controller
               ->limit(4)
               ->get();
         /* count Visitors of each day for month or years dont Rewriting visit_at */
-        $Visitors = Visitors::first();
 
-        if ($Visitors->visit_at->format('Y-m-d') == today()->toDateString()) {
-            $count = 'blog_';
+
+        $Visitors = Visitors::where('visit_at',today()->toDateString())->first();
+
+        if ($Visitors && $Visitors->visit_at->format('Y-m-d') == today()->toDateString()) {
+            $count = 'blog_'.request()->ip();
             if (!Session($count)) {
                 $Visitors->increment('visitors');
                 Session([$count => 1]);
             }
         } else {
-            $Visitors->visit_at = today()->toDateString();
-            $Visitors->visitors = 0 ;
-            $Visitors->save();
+          /*if i want day by day only
+            //$Visitors->visit_at = today()->toDateString();
+            //$Visitors->visitors = 0 ;
+            //$Visitors->save();*/
+            Visitors::create([
+              'visit_at' => today()->toDateString(),
+              'visitors' => 1,
+            ]);
+
         }
 
 

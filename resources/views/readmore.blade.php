@@ -443,8 +443,10 @@
    <script async src="https://static.addtoany.com/menu/page.js"></script>
    <script type="text/javascript">
    var h = "{{$header}}";
-   var kk = "read = " + "{{Str::slug("$header")}}";
-   //alert(kk);
-    // window.location.href = kk ;
+   //var kk = "read = " + "{{Str::slug("$header")}}";
+       //test="{{Str::slug("$header")}}";
+      // rr = "{{Str::slug('fenty-beauty')}}";
+  //alert(rr);
+    //window.location.href = rr ;
    </script>
 @include('layouts.index.home_footer')
